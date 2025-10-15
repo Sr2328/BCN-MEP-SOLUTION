@@ -11,6 +11,7 @@ import { BCNValuesModernLight } from '@/components/home/BcnValue';
 import { WhyChooseUs } from '@/components/home/ChooseUs';
 import AreaOfActivity from '@/components/home/AreaActivity';
 import FacilitiesAndResourcesBCN from '@/components/home/FacilitiesAndResources';
+import CompletedProjects from '@/components/home/CompletedProjects';
 
 export default function Home() {
   return (
@@ -24,7 +25,8 @@ export default function Home() {
       <MEPServicesSection />
       <FacilitiesAndResourcesBCN />
       <WhyChooseUs />
-      <ProjectHighlights />
+      <ProjectHighlights />   
+      <CompletedProjects />
       <PartnersSection />
       <TestimonialsSection />
       <NewsletterSection />
