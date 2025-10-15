@@ -16,19 +16,18 @@ export default function Home() {
     <div className="overflow-x-hidden">
       <HeroSection />
       <IntroductionSection />
-<MissionVisionValues />
-<BCNValuesModernLight/>
-
+      <MissionVisionValues />
+      <BCNValuesModernLight/>
       <AreaOfActivity />
-      
       <BusinessStats />
       <MEPServicesSection />
       <WhyChooseUs />
       <ProjectHighlights />
-
       <PartnersSection />
       <TestimonialsSection />
       <NewsletterSection />
     </div>
   );
 }
+      
+
