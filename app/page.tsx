@@ -9,6 +9,7 @@ import { NewsletterSection } from '@/components/home/NewsletterSection';
 import { MissionVisionValues} from '@/components/home/MissionVisionValues';
 import { BCNValuesModernLight } from '@/components/home/BcnValue';
 import { WhyChooseUs } from '@/components/home/ChooseUs';
+import AreaOfActivity from '@/components/home/AreaActivity';
 
 export default function Home() {
   return (
@@ -18,6 +19,7 @@ export default function Home() {
 <MissionVisionValues />
 <BCNValuesModernLight/>
 <WhyChooseUs />
+      <AreaOfActivity />
       <PartnersSection />
       <BusinessStats />
       <MEPServicesSection />

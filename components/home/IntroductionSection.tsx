@@ -14,9 +14,13 @@ export function IntroductionSection() {
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-6">
-              About BCN MEP
-            </h2>
+            <h2 className="text-3xl md:text-4xl font-bold mb-6 text-gray-900">
+  About{' '}
+  <span className="bg-gradient-to-r from-blue-500 to-blue-700 bg-clip-text text-transparent">
+    BCN MEP
+  </span>
+</h2>
+
             <p className="text-gray-700 leading-relaxed mb-4">
               Established in 2020, BCN MEP has rapidly emerged as a leading provider of integrated
               Mechanical, Electrical, Plumbing & Fire-fighting (MEPF) solutions across India. We
