@@ -33,13 +33,13 @@ const activities = [
     title: 'Fabrication & Structural Work',
     desc: 'High-quality fabrication including steel structures, DG exhausts, diesel tanks, and pipelines.',
     details: `Our fabrication division handles precision work for steel structures, DG exhausts, diesel tanks, firefighting assemblies, and industrial pipelines.`,
-    image: '/images/fabrication.jpg',
+    image: 'https://i.postimg.cc/ZRp0jCB9/structural-steel-fabrication-work.webp',
   },
   {
     title: 'Utility & Piping Services',
     desc: 'End-to-end solutions for utility piping and industrial distribution systems.',
     details: `BCN MEP executes reliable piping and utility service networks for industrial and commercial facilities with long-term durability and compliance.`,
-    image: '/images/piping.jpg',
+    image: 'https://i.postimg.cc/7hqPVXyT/oil-piping-500x500.webp',
   },
 ];
 

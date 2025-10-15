@@ -10,6 +10,7 @@ import { MissionVisionValues} from '@/components/home/MissionVisionValues';
 import { BCNValuesModernLight } from '@/components/home/BcnValue';
 import { WhyChooseUs } from '@/components/home/ChooseUs';
 import AreaOfActivity from '@/components/home/AreaActivity';
+import FacilitiesAndResourcesBCN from '@/components/home/FacilitiesAndResources';
 
 export default function Home() {
   return (
@@ -21,6 +22,7 @@ export default function Home() {
       <AreaOfActivity />
       <BusinessStats />
       <MEPServicesSection />
+      <FacilitiesAndResourcesBCN />
       <WhyChooseUs />
       <ProjectHighlights />
       <PartnersSection />

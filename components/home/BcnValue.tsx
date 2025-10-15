@@ -83,7 +83,7 @@ export function BCNValuesModernLight() {
           className="relative flex justify-center md:justify-end"
         >
           <Image
-            src="https://i.postimg.cc/V6W5bF4P/30cad08456e192a7b1aad563d7c66e68-1.png"
+            src="https://i.postimg.cc/mkrfkns3/Electrical-Engineering-In-MEP-Design-Services-03-0205150004-scaled-2.png"
             alt="BCN MEP Values"
             width={480}
             height={480}
