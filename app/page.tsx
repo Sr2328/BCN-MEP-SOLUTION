@@ -18,12 +18,15 @@ export default function Home() {
       <IntroductionSection />
 <MissionVisionValues />
 <BCNValuesModernLight/>
-<WhyChooseUs />
+
       <AreaOfActivity />
-      <PartnersSection />
+      
       <BusinessStats />
       <MEPServicesSection />
+      <WhyChooseUs />
       <ProjectHighlights />
+
+      <PartnersSection />
       <TestimonialsSection />
       <NewsletterSection />
     </div>
