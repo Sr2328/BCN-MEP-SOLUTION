@@ -13,7 +13,7 @@ import AreaOfActivity from '@/components/home/AreaActivity';
 
 export default function Home() {
   return (
-    <div>
+    <div className="overflow-x-hidden">
       <HeroSection />
       <IntroductionSection />
 <MissionVisionValues />
