@@ -119,7 +119,7 @@ export default function FacilitiesAndResources() {
             className="flex justify-center order-first md:order-last"
           >
             <Image
-              src="https://i.postimg.cc/m2HjWSvn/1230e87db1700c97c683d5d7a39e4999.jpg" // Replace with transparent PNG of your team
+              src="https://i.postimg.cc/L63cM2Fq/1230e87db1700c97c683d5d7a39e4999.png" // Replace with transparent PNG of your team
               alt="Human Resources"
               width={400}
               height={400}
