@@ -80,14 +80,14 @@ export function HeroSection() {
               Call:{' '}
               <a
                 href="tel:+918930372989"
-                className="text-blue-400 hover:text-blue-300 underline"
+                className="text-blue-400 hover:text-blue-300  text-decoration-none"
               >
                 +91-8930372989
               </a>{' '}
               • Email:{' '}
               <a
                 href="mailto:bcnmepsolutions@gmail.com"
-                className="text-blue-400 hover:text-blue-300 underline"
+                className="text-blue-400 hover:text-blue-300 text-decoration-none"
               >
                 bcnmepsolutions@gmail.com
               </a>

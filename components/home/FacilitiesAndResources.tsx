@@ -5,22 +5,22 @@ import { motion } from 'framer-motion';
 
 const facilities = [
   {
-    img: '/icons/workspace.png',
+    img: 'https://i.postimg.cc/QxqSBjgf/bb387490d5fa14a7a9c1b976a914715f.jpg',
     title: 'Office & Storage Space',
     desc: '300 sq.ft of workspace and 2000 sq.ft of dedicated storage for efficient project operations.',
   },
   {
-    img: '/icons/computer.png',
+    img: 'https://i.postimg.cc/7YNJ16W8/d1dd996a9b6d615203791840556d1a80.jpg',
     title: 'Technology Infrastructure',
     desc: 'High-performance systems for accounting, planning, and long-term project execution.',
   },
   {
-    img: '/icons/network.png',
+    img: 'https://i.postimg.cc/fLhMg7VC/b243ff983fe08ca0e3fa38d418cb9724.jpg',
     title: 'Communication Facilities',
     desc: 'Integrated email, mobile, and telecommunication systems ensuring seamless coordination.',
   },
   {
-    img: '/icons/tools.png',
+    img: 'https://i.postimg.cc/G341JSgr/9b710f670e9e6f5f603cf06a5372e228.jpg',
     title: 'Tools & Equipment',
     desc: 'Every technician and engineer is equipped with essential professional-grade tools.',
   },
@@ -59,12 +59,12 @@ export default function FacilitiesAndResources() {
               whileHover={{ scale: 1.05 }}
               className="bg-white rounded-2xl shadow-sm hover:shadow-md transition-all duration-300 p-6 text-center border border-gray-100"
             >
-              <div className="w-14 h-14 mx-auto mb-4 relative">
+              <div className="w-20 h-20 mx-auto mb-4 relative">
                 <Image
                   src={item.img}
                   alt={item.title}
                   fill
-                  className="object-contain"
+                  className="object-contain rounded-full"
                 />
               </div>
               <h3 className="text-lg font-semibold text-gray-900 mb-2">
