@@ -8,7 +8,6 @@ import { supabase, type Service } from '@/lib/supabase';
 import { Button } from '@/components/ui/button';
 import { Card } from '@/components/ui/card';
 
-
 export default function ServicesPage() {
   const [services, setServices] = useState<Service[]>([]);
   const [categories, setCategories] = useState<string[]>([]);
@@ -24,9 +23,7 @@ export default function ServicesPage() {
 
       if (data) {
         setServices(data);
-        const uniqueCategories = Array.from(
-          new Set(data.map((s) => s.category))
-        );
+        const uniqueCategories = Array.from(new Set(data.map((s) => s.category)));
         setCategories(['All', ...uniqueCategories]);
       }
       setLoading(false);
@@ -42,24 +39,75 @@ export default function ServicesPage() {
 
   return (
     <div>
-      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-blue-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Our Services
-            </h1>
-            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
-              Comprehensive digital solutions designed to transform your business
-              and drive sustainable growth
-            </p>
-          </motion.div>
-        </div>
-      </section>
+      {/* ===== HERO SECTION START ===== */}
+      <section className="relative overflow-hidden bg-gradient-to-r from-blue-50 via-white to-blue-100">
+  <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+    {/* LEFT SIDE */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6 }}
+      className="text-center md:text-left"
+    >
+      <p className="text-blue-600 font-semibold mb-2">
+        Integrated MEP Engineering Excellence
+      </p>
 
+      <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+        <span className="text-blue-700">Engineering Systems</span> <span className= "text-black-600">  that Power </span> <br />
+        <span className="text-black-600">Performance & Sustainability</span>
+      </h1>
+
+      <p className="text-gray-600 mb-6 max-w-md mx-auto md:mx-0">
+        BCN MEP delivers innovative, efficient, and reliable Mechanical, Electrical, and Plumbing
+        solutions that transform spaces into high-performing environments.
+      </p>
+
+      <div className="flex flex-wrap justify-center md:justify-start gap-3">
+        {[
+          'HVAC & Ventilation',
+          'Electrical Installations',
+          'Fire Fighting Systems',
+          'Plumbing & Utilities',
+          'ELV Systems'
+        ].map((item) => (
+          <span
+            key={item}
+            className="bg-white border border-gray-200 text-gray-800 text-sm px-4 py-2 rounded-full shadow-sm hover:shadow-md transition-all"
+          >
+            {item}
+          </span>
+        ))}
+      </div>
+    </motion.div>
+
+    {/* RIGHT SIDE */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      animate={{ opacity: 1, y: 0 }}
+      transition={{ duration: 0.6, delay: 0.2 }}
+      className="relative"
+    >
+       <motion.img
+    src="https://i.postimg.cc/zB7mMKjY/mep.png"
+    alt="BCN MEP Systems"
+    className="w-full md:w-[90%] h-72 md:h-[420px] object-contain rounded-2xl transition-transform duration-500 ease-in-out hover:scale-105 hover:rotate-1 hover:shadow-2xl"
+    whileHover={{
+      scale: 1.05,
+      rotate: 1,
+      transition: { duration: 0.4 },
+    }}
+  />
+
+     
+    </motion.div>
+  </div>
+</section>
+
+      {/* ===== HERO SECTION END ===== */}
+
+      {/* ===== SERVICES SECTION START ===== */}
+      
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
