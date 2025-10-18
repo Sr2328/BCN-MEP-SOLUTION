@@ -958,10 +958,14 @@
 
 'use client';
 
-import { useEffect, useState } from 'react';
+import { JSX, JSXElementConstructor, Key, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
-import { Target, Eye, Shield, Award, Clock, TrendingUp, CheckCircle2, Users, Zap, Wrench, HeartHandshake, Lightbulb, ThumbsUp, Rocket, Star, Globe, Phone, Mail, MapPin, ArrowRight, Building2, HardHat, FileCheck, Settings, Briefcase, BadgeCheck } from 'lucide-react';
+import { Target, Eye, Shield, Award, Clock, TrendingUp, CheckCircle2, Users, Zap, Wrench, HeartHandshake, Lightbulb, ThumbsUp, Rocket, Star, Globe, Phone, Mail, MapPin, ArrowRight, Building2, HardHat, FileCheck, Settings, Briefcase, BadgeCheck, Heart } from 'lucide-react';
 import { Card } from '@/components/ui/card';
+import React from 'react';
+
+
+
 
 const processSteps = [
   {
@@ -1057,6 +1061,54 @@ export default function AboutPage() {
 
     return () => clearInterval(interval);
   }, []);
+  const CoreValuesSection = () => {
+  const [activeValue, setActiveValue] = useState(0);
+
+  const values = [
+    {
+      name: 'Integrity',
+      icon: Shield,
+      color: 'from-blue-500 to-blue-600',
+      description: 'We operate with transparency and honesty in every interaction',
+      bgGlow: 'group-hover:shadow-blue-500/50'
+    },
+    {
+      name: 'Collaboration',
+      icon: Users,
+      color: 'from-purple-500 to-purple-600',
+      description: 'Working together to achieve extraordinary results',
+      bgGlow: 'group-hover:shadow-purple-500/50'
+    },
+    {
+      name: 'Innovation',
+      icon: Zap,
+      color: 'from-amber-500 to-orange-500',
+      description: 'Pushing boundaries with creative solutions',
+      bgGlow: 'group-hover:shadow-amber-500/50'
+    },
+    {
+      name: 'Excellence',
+      icon: Target,
+      color: 'from-rose-500 to-pink-600',
+      description: 'Committed to delivering outstanding quality',
+      bgGlow: 'group-hover:shadow-rose-500/50'
+    },
+    {
+      name: 'Recognition',
+      icon: Award,
+      color: 'from-emerald-500 to-teal-600',
+      description: 'Celebrating achievements and fostering growth',
+      bgGlow: 'group-hover:shadow-emerald-500/50'
+    },
+    {
+      name: 'Compassion',
+      icon: Heart,
+      color: 'from-red-500 to-rose-600',
+      description: 'Leading with empathy and understanding',
+      bgGlow: 'group-hover:shadow-red-500/50'
+    }
+  ];
+
 
   return (
     <div className="bg-white overflow-x-hidden">
@@ -1115,215 +1167,312 @@ export default function AboutPage() {
 </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-white relative">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {[
-              { value: count.projects, label: 'Projects Completed', suffix: '+', icon: Building2, color: 'blue' },
-              { value: count.clients, label: 'Satisfied Clients', suffix: '+', icon: Users, color: 'cyan' },
-              { value: count.years, label: 'Years of Excellence', suffix: '+', icon: Award, color: 'purple' },
-              { value: count.team, label: 'Team Members', suffix: '+', icon: HardHat, color: 'green' }
-            ].map((stat, index) => (
+       <section className="py-16 bg-gradient-to-bl from-gray-50 via-white to-gray-100 relative overflow-hidden">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+          {(() => {
+            const status = [
+              { color: 'from-blue-500 to-blue-600', icon: Target, value: count.projects, suffix: '+', label: 'Completed Projects' },
+              { color: 'from-cyan-500 to-cyan-600', icon: Users, value: count.clients, suffix: '+', label: 'Satisfied Clients' },
+              { color: 'from-purple-500 to-purple-600', icon: Clock, value: count.years, suffix: '+', label: 'Years of Excellence' },
+              { color: 'from-green-500 to-emerald-500', icon: Award, value: count.team, suffix: '+', label: 'Team Members' },
+            ];
+            return status.map((stat, index) => (
               <motion.div
                 key={index}
                 initial={{ opacity: 0, y: 20 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -5 }}
-                className="text-center"
+                whileHover={{ y: -6, scale: 1.03 }}
               >
-                <Card className="p-8 shadow-xl hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-400">
-                  <div className={`w-16 h-16 bg-${stat.color}-100 rounded-2xl flex items-center justify-center mx-auto mb-4`}>
-                    <stat.icon className={`w-8 h-8 text-${stat.color}-600`} />
+                <Card className="p-6 md:p-8 bg-white/70 backdrop-blur-md border border-gray-200 shadow-md hover:shadow-xl rounded-2xl transition-all duration-300 text-center">
+                  <div className={`w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-tr ${stat.color} flex items-center justify-center shadow-inner`}>
+                    <stat.icon className="w-7 h-7 text-white" />
                   </div>
-                  <div className="text-5xl md:text-6xl font-bold text-blue-600 mb-2">
+                  <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-1">
                     {stat.value}{stat.suffix}
-                  </div>
-                  <div className="text-gray-600 text-lg font-medium">{stat.label}</div>
+                  </h3>
+                  <p className="text-gray-600 font-medium text-sm md:text-base">{stat.label}</p>
                 </Card>
               </motion.div>
-            ))}
-          </div>
+            ));
+          })()}
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* About Section */}
-      <section className="py-20 md:py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
-            <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <span className="inline-block px-6 py-3 bg-blue-100 text-blue-600 rounded-full text-sm font-semibold mb-6 shadow-lg">
-                About BCN MEP Solutions
-              </span>
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Pioneering Industrial MEP Excellence Since 2020
-              </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-6">
-                BCN MEP Solutions Pvt. Ltd. was established in 2020 with a pioneering vision to revolutionize industrial MEP solutions. In just five years, we have grown into a respected name, achieving considerable milestones while setting ambitious targets for the future.
-              </p>
-              <p className="text-gray-600 text-lg leading-relaxed mb-8">
-                Based in Gurgaon, we specialize in the complete design, installation, and commissioning of turnkey MEP/Electrical Contracting and Utility Projects. Our comprehensive services include electrical and mechanical infrastructure, industrial pipelines, LV systems, and complete fire fighting installations.
-              </p>
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <motion.div 
-                  whileHover={{ scale: 1.03 }}
-                  className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg"
-                >
-                  <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Award className="w-7 h-7 text-blue-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-lg mb-1">Certified Excellence</h4>
-                    <p className="text-sm text-gray-600">Quality Standards & Recognition</p>
-                  </div>
-                </motion.div>
-                <motion.div 
-                  whileHover={{ scale: 1.03 }}
-                  className="flex items-start gap-4 p-6 bg-white rounded-xl shadow-lg"
-                >
-                  <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center flex-shrink-0">
-                    <Shield className="w-7 h-7 text-blue-600" />
-                  </div>
-                  <div>
-                    <h4 className="font-bold text-gray-900 text-lg mb-1">Safety First</h4>
-                    <p className="text-sm text-gray-600">Uncompromising Priority</p>
-                  </div>
-                </motion.div>
-              </div>
-            </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              className="relative"
-            >
-              <div className="relative rounded-3xl overflow-hidden shadow-2xl">
-                <img
-                  src="https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=800"
-                  alt="BCN MEP Construction"
-                  className="w-full h-[600px] object-cover"
-                />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-              </div>
-              <div className="absolute -bottom-8 -right-8 w-64 h-64 bg-blue-600 rounded-3xl -z-10 opacity-20"></div>
-              <div className="absolute -top-8 -left-8 w-64 h-64 bg-blue-400 rounded-3xl -z-10 opacity-20"></div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
-
-      {/* Mission & Vision */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="py-12 md:py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+          
+          {/* Left Text Section */}
           <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
+            initial={{ opacity: 0, x: -20 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Mission & Vision
+            <span className="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold mb-4 shadow-sm">
+              About BCN MEP Solutions
+            </span>
+
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-snug">
+              Pioneering Industrial 
+              <br></br>
+              <span className="text-blue-600">
+              MEP Excellence Since 2020
+              </span>
+
             </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Driving excellence through clear purpose and ambitious goals
+
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+              Founded in 2020, BCN MEP Solutions Pvt. Ltd. has rapidly become a trusted name in the industrial MEP domain — delivering innovative, efficient, and high-quality solutions for diverse projects across sectors.
             </p>
+            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
+              Headquartered in Gurgaon, we provide end-to-end MEP, Electrical Contracting, and Utility Services — including industrial pipelines, LV systems, and complete firefighting installations.
+            </p>
+
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+              <motion.div 
+                whileHover={{ scale: 1.03 }}
+                className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all"
+              >
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Award className="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-1">Certified Excellence</h4>
+                  <p className="text-xs text-gray-600">Quality Standards & Recognition</p>
+                </div>
+              </motion.div>
+
+              <motion.div 
+                whileHover={{ scale: 1.03 }}
+                className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all"
+              >
+                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                  <Shield className="w-5 h-5 text-blue-600" />
+                </div>
+                <div>
+                  <h4 className="font-semibold text-gray-900 text-sm mb-1">Safety First</h4>
+                  <p className="text-xs text-gray-600">Uncompromising Priority</p>
+                </div>
+              </motion.div>
+            </div>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.1 }}
-              whileHover={{ y: -8 }}
-            >
-              <Card className="p-10 h-full border-2 hover:border-blue-400 hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-white to-blue-50">
-                <div className="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
-                  <Target className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Mission</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  To be the preferred integrated MEPF solution provider, delivering consistent quality and cost-effective solutions. We become 'Partners in Progress' with our customers by investing in world-class solutions that enable them to focus on their core business.
-                </p>
-              </Card>
-            </motion.div>
+          {/* Right Image Section */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="relative"
+          >
+            <div className="relative rounded-2xl overflow-hidden shadow-xl">
+              <img
+                src="https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=800"
+                alt="BCN MEP Construction"
+                className="w-full h-[350px] md:h-[420px] object-cover"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+            </div>
+            <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-blue-600 rounded-2xl -z-10 opacity-20"></div>
+            <div className="absolute -top-6 -left-6 w-40 h-40 bg-blue-400 rounded-2xl -z-10 opacity-20"></div>
+          </motion.div>
 
+        </div>
+      </div>
+    </section>
+      {/* Mission & Vision */}
+         <section className="py-12 md:py-20 bg-gray-50">
+      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+        
+        {/* Heading */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6 }}
+          className="text-center mb-10"
+        >
+          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+            Our
+            <span className="text-blue-600 ml-2">
+             Mission & Vision
+             </span>
+          </h2>
+          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+            Driving excellence through purpose and innovation
+          </p>
+        </motion.div>
+
+        {/* Cards */}
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+          {[{
+            icon: Target,
+            title: 'Our Mission',
+            text: 'To be the preferred integrated MEPF solution provider delivering consistent quality, cost-effective solutions, and building strong partnerships with our clients.'
+          },
+          {
+            icon: Eye,
+            title: 'Our Vision',
+            text: 'To become a trusted industry leader in MEP services, known for safety, quality, reliability, and sustainable innovation across every project we deliver.'
+          }].map((card, i) => (
             <motion.div
+              key={i}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -8 }}
+              transition={{ duration: 0.6, delay: i * 0.1 }}
+              whileHover={{ y: -5, scale: 1.02 }}
             >
-              <Card className="p-10 h-full border-2 hover:border-blue-400 hover:shadow-2xl transition-all duration-300 bg-gradient-to-br from-white to-blue-50">
-                <div className="w-20 h-20 bg-blue-600 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
-                  <Eye className="w-10 h-10 text-white" />
+              <Card className="p-6 md:p-8 bg-white rounded-2xl shadow-md hover:shadow-xl border border-gray-100 transition-all duration-300 hover:border-blue-400 text-center">
+                <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                  <card.icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
                 </div>
-                <h3 className="text-3xl font-bold text-gray-900 mb-6">Our Vision</h3>
-                <p className="text-gray-600 text-lg leading-relaxed">
-                  To establish ourselves as the leading partner for all MEP solution needs, recognized for our unwavering commitment to safety, quality, timely delivery, cost-effectiveness, reliability, sustainability, and consistency.
+                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">
+                  {card.title}
+                </h3>
+                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                  {card.text}
                 </p>
               </Card>
             </motion.div>
-          </div>
+          ))}
         </div>
-      </section>
+
+      </div>
+    </section>
 
       {/* Core Values */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Core Values
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              The principles that drive our success and client satisfaction
-            </p>
-          </motion.div>
+    <section className="relative py-20 md:py-28 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
+      {/* Animated Background Elements */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        <div className="absolute top-0 -left-4 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
+        <div className="absolute top-0 -right-4 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
+        <div className="absolute -bottom-8 left-1/2 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
+      </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
-            {[
-              { name: 'Safety', icon: Shield, color: 'red' },
-              { name: 'Quality', icon: Award, color: 'blue' },
-              { name: 'Delivery', icon: Clock, color: 'green' },
-              { name: 'Cost', icon: TrendingUp, color: 'purple' },
-              { name: 'Reliability', icon: CheckCircle2, color: 'yellow' },
-              { name: 'Sustainability', icon: Globe, color: 'teal' },
-            ].map((value, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.8 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.1 }}
-                whileHover={{ scale: 1.08, y: -8 }}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+        {/* Heading */}
+        <div className="text-center mb-16 md:mb-24">
+          <div className="inline-block mb-4">
+            <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-blue-600 bg-blue-100 rounded-full">
+              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+              What Drives Us
+            </span>
+          </div>
+          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
+            Our Core <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Values</span>
+          </h2>
+          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+            The principles that drive our success and client satisfaction
+          </p>
+        </div>
+
+        {/* Values Grid - Responsive */}
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 mb-12">
+          {values.map((value, i) => {
+            const Icon = value.icon;
+            const isActive = activeValue === i;
+            
+            return (
+              <div
+                key={i}
+                className="flex flex-col items-center group cursor-pointer"
+                onClick={() => setActiveValue(i)}
               >
-                <Card className="p-8 text-center h-full hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-400">
-                  <div className={`w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center mx-auto mb-4 shadow-lg`}>
-                    <value.icon className="w-8 h-8 text-white" />
+                {/* Icon Container with 3D effect */}
+                <div className="relative mb-4 transition-all duration-500 ease-out">
+                  {/* Background glow effect */}
+                  <div className={`absolute inset-0 bg-gradient-to-tr ${value.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 ${isActive ? 'opacity-40' : ''}`}></div>
+                  
+                  {/* Main icon container */}
+                  <div className={`relative w-20 h-20 md:w-24 md:h-24 transition-all duration-500 ${isActive ? 'scale-110' : 'scale-100 group-hover:scale-105'}`}>
+                    {/* Rotating background layer */}
+                    <div 
+                      className={`absolute inset-0 bg-gradient-to-tr ${value.color} rounded-3xl transition-all duration-700 ${isActive ? 'rotate-12' : 'rotate-3 group-hover:rotate-6'}`}
+                      style={{
+                        animation: isActive ? 'float 3s ease-in-out infinite' : 'none'
+                      }}
+                    ></div>
+                    
+                    {/* Icon container */}
+                    <div className={`relative w-full h-full bg-gradient-to-tr ${value.color} rounded-3xl flex items-center justify-center shadow-lg transition-all duration-500 ${isActive ? `shadow-2xl ${value.bgGlow}` : 'group-hover:shadow-xl'}`}>
+                      <Icon className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={2} />
+                    </div>
                   </div>
-                  <h3 className="font-bold text-gray-900 text-lg">{value.name}</h3>
-                </Card>
-              </motion.div>
-            ))}
+                </div>
+
+                {/* Name */}
+                <h3 className={`text-sm md:text-base font-bold text-center transition-all duration-300 ${isActive ? 'text-gray-900 scale-105' : 'text-gray-700 group-hover:text-gray-900'}`}>
+                  {value.name}
+                </h3>
+              </div>
+            );
+          })}
+        </div>
+
+        {/* Active Value Description Card */}
+        <div className="max-w-4xl mx-auto">
+          <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20 transition-all duration-500">
+            <div className="flex items-start gap-6">
+              {/* Large Icon */}
+              <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-tr ${values[activeValue].color} rounded-2xl flex items-center justify-center shadow-xl`}>
+                {React.createElement(values[activeValue].icon, { className: "w-8 h-8 md:w-10 md:h-10 text-white", strokeWidth: 2 })}
+              </div>
+
+              {/* Content */}
+              <div className="flex-1">
+                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+                  {values[activeValue].name}
+                </h3>
+                <p className="text-base md:text-lg text-gray-600 leading-relaxed">
+                  {values[activeValue].description}
+                </p>
+              </div>
+            </div>
+
+            {/* Progress Indicators */}
+            <div className="flex justify-center gap-2 mt-8">
+              {values.map((_, i) => (
+                <button
+                  key={i}
+                  onClick={() => setActiveValue(i)}
+                  className={`transition-all duration-300 rounded-full ${activeValue === i ? 'w-8 h-2 bg-gradient-to-r from-blue-600 to-purple-600' : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'}`}
+                  aria-label={`View ${values[i].name}`}
+                ></button>
+              ))}
+            </div>
           </div>
         </div>
-      </section>
+
+        {/* Bottom CTA */}
+        <div className="mt-16 text-center">
+          <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 overflow-hidden">
+            <div className="absolute inset-0 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+            <span className="relative">Discover More About Us</span>
+            <svg className="relative w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <style jsx>{`
+        @keyframes float {
+          0%, 100% {
+            transform: translateY(0px) rotate(12deg);
+          }
+          50% {
+            transform: translateY(-10px) rotate(12deg);
+          }
+        }
+      `}</style>
+    </section>
 
       {/* Work Process Section */}
       <section className="py-20 md:py-32 bg-white">
@@ -2007,11 +2156,12 @@ export default function AboutPage() {
   </Card>
 </motion.div>
     
-        
+          };
+
       
       {/* Team Section */}
 
 
                
            
-      
+    
