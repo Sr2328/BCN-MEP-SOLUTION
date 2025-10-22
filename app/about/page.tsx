@@ -1343,7 +1343,7 @@ export default function AboutPage() {
           What Drives Us
         </span>
       </div>
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
         Our Core <span className="text-blue-600">Values</span>
       </h2>
       <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
@@ -1453,10 +1453,13 @@ export default function AboutPage() {
       transition={{ duration: 0.6 }}
       className="text-center mb-12 md:mb-16"
     >
-      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
-        Our Work Process
+      <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
+        Our  
+        <span className="text-blue-600 ml-2">
+        Work Process
+        </span>
       </h2>
-      <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+      <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
         A refined approach to deliver reliable, efficient, and innovative MEP solutions.
       </p>
     </motion.div>
@@ -1502,74 +1505,68 @@ export default function AboutPage() {
 
 
       {/* Why Choose Us Section */}
-      <section className="py-16 md:py-24 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white relative overflow-hidden">
-  {/* Patterned Overlay */}
-  <div className="absolute inset-0 opacity-10">
-    <div
-      className="absolute inset-0"
-      style={{
-        backgroundImage:
-          'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.6) 1px, transparent 0)',
-        backgroundSize: '32px 32px',
-      }}
-    ></div>
+      <section className="relative py-14 md:py-20 bg-gradient-to-br from-[#0f172a] via-[#1e1a78] to-[#0f172a] text-white overflow-hidden">
+  {/* Background Glow */}
+  <div className="absolute inset-0">
+    <div className="absolute top-10 left-1/3 w-60 h-60 bg-blue-500/20 rounded-full blur-3xl"></div>
+    <div className="absolute bottom-10 right-1/3 w-60 h-60 bg-indigo-600/20 rounded-full blur-3xl"></div>
   </div>
 
-  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+  <div className="relative max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 z-10">
     {/* Heading */}
     <motion.div
       initial={{ opacity: 0, y: 20 }}
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true }}
       transition={{ duration: 0.6 }}
-      className="text-center mb-12 md:mb-16"
+      className="text-center mb-12"
     >
-      <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
-        Why Choose <span className="text-blue-200">BCN MEP Solutions?</span>
+      <h2 className="text-2xl md:text-3xl font-bold mb-3 tracking-tight">
+        Why Choose <span className="text-blue-400">BCN MEP Solutions?</span>
       </h2>
-      <p className="text-base md:text-lg text-blue-100 max-w-2xl mx-auto">
-        We reflect the values we hold — <span className="font-semibold">Knowledge, Leadership, Aptitude, and Honesty.</span>
+      <p className="text-sm md:text-base text-slate-300 max-w-2xl mx-auto leading-relaxed">
+        We stand for <span className="font-semibold text-white">Knowledge, Leadership, Aptitude,</span> and <span className="font-semibold text-white">Honesty</span> — driving excellence in every project.
       </p>
     </motion.div>
 
     {/* Feature Cards */}
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
       {[
         {
           title: 'On-Time Delivery',
           icon: Clock,
           description:
-            'Ensuring timely and budget-friendly project completion is our cornerstone commitment.',
+            'Timely and efficient completion — every deadline matters to us.',
         },
         {
           title: 'Strong Partnerships',
           icon: HeartHandshake,
           description:
-            'Collaborative processes with effective communication from start to finish.',
+            'Built on trust, transparency, and long-term collaboration.',
         },
         {
           title: 'Customer Service',
           icon: ThumbsUp,
           description:
-            'We eagerly attend to inquiries with efficiency and care, delivering outstanding results.',
+            'Friendly, quick, and efficient support from start to finish.',
         },
         {
           title: 'Local Expertise',
           icon: MapPin,
           description:
-            'Based in Gurgaon with deep knowledge of regional requirements and standards.',
+            'Deep regional knowledge with industry-specific understanding.',
         },
         {
           title: 'Proven Track Record',
           icon: Star,
           description:
-            'Successfully completed 20+ major industrial projects for leading organizations.',
+            '20+ successful projects for top organizations across sectors.',
         },
         {
           title: 'Innovation',
           icon: Lightbulb,
           description:
-            'Cutting-edge solutions using the latest technology and sustainable practices.',
+            'Forward-thinking and sustainable MEP practices for modern needs.',
         },
       ].map((item, index) => (
         <motion.div
@@ -1577,19 +1574,26 @@ export default function AboutPage() {
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: index * 0.1 }}
-          whileHover={{ y: -6 }}
-          className="h-full"
+          transition={{ duration: 0.5, delay: index * 0.1 }}
+          whileHover={{ scale: 1.04, y: -3 }}
+          className="group"
         >
-          <Card className="p-6 md:p-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl hover:bg-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-2xl h-full flex flex-col items-center text-center">
-            <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center mb-5 shadow-lg transition-transform duration-500 group-hover:rotate-6">
-              <item.icon className="w-7 h-7 md:w-8 md:h-8 text-blue-600" />
+          <div className="bg-white/10 backdrop-blur-lg border border-white/20 rounded-xl p-5 md:p-6 hover:bg-white/15 hover:border-white/40 transition-all duration-400 shadow-md hover:shadow-blue-500/10 text-center flex flex-col items-center h-full">
+            {/* Icon */}
+            <div className="w-12 h-12 md:w-14 md:h-14 bg-gradient-to-br from-blue-500 to-indigo-600 rounded-xl flex items-center justify-center mb-4 shadow-lg group-hover:scale-110 transition-transform duration-300">
+              <item.icon className="w-6 h-6 text-white" />
             </div>
-            <h3 className="text-lg md:text-xl font-semibold mb-2">{item.title}</h3>
-            <p className="text-sm md:text-base text-blue-100 leading-relaxed">
+
+            {/* Title */}
+            <h3 className="text-base md:text-lg font-semibold mb-1 text-white group-hover:text-blue-300 transition-colors duration-300">
+              {item.title}
+            </h3>
+
+            {/* Description */}
+            <p className="text-xs md:text-sm text-slate-300 leading-relaxed">
               {item.description}
             </p>
-          </Card>
+          </div>
         </motion.div>
       ))}
     </div>
@@ -1598,92 +1602,53 @@ export default function AboutPage() {
 
 
       {/* Services Expertise */}
-      <section className="py-20 md:py-32 bg-gray-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Services Expertise
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Comprehensive MEP solutions for industrial and commercial projects
-            </p>
-          </motion.div>
+  <section className="w-full bg-[#f8fbff] py-16 md:py-24">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
+        {/* LEFT IMAGE */}
+        <motion.div
+          initial={{ opacity: 0, x: -40 }}
+          whileInView={{ opacity: 1, x: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8, ease: 'easeOut' }}
+          className="flex justify-center"
+        >
+          <motion.img
+            src="https://i.postimg.cc/6QBmhhRS/Home-4-1-1.png" // replace with your actual image path
+            alt="BCN MEP Services"
+            className="w-full max-w-md md:max-w-lg h-auto object-contain drop-shadow-xl"
+            initial={{ opacity: 0, scale: 1.05 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 1, ease: 'easeOut' }}
+            whileHover={{ scale: 1.03 }}
+          />
+        </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-              whileHover={{ y: -10 }}
-            >
-              <Card className="p-10 h-full hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-400">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
-                  <Zap className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Electrical Systems
-                </h3>
-                <ul className="space-y-4 text-gray-600">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span className="text-lg">STP & ETP Systems</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span className="text-lg">Process Services</span>
-                  </li>
-                </ul>
-              </Card>
-            </motion.div>
+        {/* RIGHT CONTENT */}
+       <motion.div
+  initial={{ opacity: 0, x: 40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.8, delay: 0.2 }}
+  className="text-center md:text-left space-y-5"
+>
+  <h2 className="text-2xl md:text-3xl lg:text-3xl font-bold text-gray-900 leading-snug">
+    Delivering Comprehensive Industrial 
+    <br></br>
+    <span className="text-blue-600">
+    MEP Engineering Solutions
+</span>
 
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: 0.2 }}
-              whileHover={{ y: -10 }}
-            >
-              <Card className="p-10 h-full hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-400">
-                <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
-                  <Shield className="w-10 h-10 text-white" />
-                </div>
-                <h3 className="text-2xl font-bold text-gray-900 mb-6">
-                  Fire Fighting Systems
-                </h3>
-                <ul className="space-y-4 text-gray-600">
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span className="text-lg">Fire Hydrant Systems</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span className="text-lg">Sprinkler Installation</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span className="text-lg">Fire Detection & Alarms</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span className="text-lg">Pump Room Setup</span>
-                  </li>
-                  <li className="flex items-start gap-3">
-                    <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-                    <span className="text-lg">Suppression Systems</span>
-                  </li>
-                </ul>
-              </Card>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+  </h2>
+  <p className="text-gray-600 text-base md:text-lg leading-relaxed max-w-xl mx-auto md:mx-0">
+    BCN MEP provides integrated Mechanical, Electrical, and Plumbing solutions tailored for industrial 
+    and commercial infrastructures. Our approach combines innovation, precision, and sustainability 
+    to deliver performance-driven engineering excellence across every project.
+  </p>
+</motion.div>
+
+      </div>
+    </section>
+
 
       {/* Team Section */}
       <section className="py-20 md:py-32 bg-white">
