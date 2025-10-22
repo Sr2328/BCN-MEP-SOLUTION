@@ -2106,109 +2106,97 @@ const Card = ({ className, children }: CardProps) => (
 
 
       {/* Facilities & Resources */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Facilities & Resources
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Equipped with modern infrastructure and skilled workforce to deliver excellence
-            </p>
-          </motion.div>
+      <section className="py-10 md:py-16 bg-white overflow-hidden">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+      
+      {/* LEFT TEXT SECTION */}
+      <motion.div
+        initial={{ opacity: 0, x: -40 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.6 }}
+        className="space-y-5 text-center lg:text-left"
+      >
+        <motion.h2
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="text-2xl md:text-3xl font-bold text-gray-900"
+        >
+          Our Facilities & Resources
+        </motion.h2>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
+        <motion.p
+          initial={{ opacity: 0 }}
+          whileInView={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.2 }}
+          className="text-sm md:text-base text-gray-600 max-w-md mx-auto lg:mx-0"
+        >
+          We are equipped with advanced infrastructure and a skilled workforce 
+          to ensure efficiency, quality, and reliability in every project.
+        </motion.p>
+
+        {/* FEATURES */}
+        <div className="space-y-3">
+          {[
+            '300+ sq.ft. modern office space',
+            '2000 sq.ft. material storage facility',
+            'Advanced design software systems',
+            'Professional and skilled engineers',
+          ].map((item, index) => (
             <motion.div
+              key={index}
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
+              transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
+              className="flex items-start justify-center lg:justify-start gap-2"
             >
-              <Card className="p-10 h-full border-2 hover:border-blue-400 transition-all duration-300 shadow-xl hover:shadow-2xl">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Building2 className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-900">Infrastructure</h3>
-                </div>
-                <ul className="space-y-4 text-gray-600">
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">300+ sq.ft. modern office space with full facilities</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">2000 sq.ft. dedicated material storage facility</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">Advanced computers with specialized design software</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">Computerized accounting & material planning systems</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">Complete communication infrastructure</span>
-                  </li>
-                </ul>
-              </Card>
+              <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5" />
+              <span className="text-gray-700 text-sm md:text-base">
+                {item}
+              </span>
             </motion.div>
-
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6 }}
-            >
-              <Card className="p-10 h-full border-2 hover:border-blue-400 transition-all duration-300 shadow-xl hover:shadow-2xl">
-                <div className="flex items-center gap-4 mb-8">
-                  <div className="w-16 h-16 bg-blue-600 rounded-2xl flex items-center justify-center shadow-lg">
-                    <Users className="w-8 h-8 text-white" />
-                  </div>
-                  <h3 className="text-3xl font-bold text-gray-900">Human Resources</h3>
-                </div>
-                <ul className="space-y-4 text-gray-600">
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">Competent team of managers and engineers</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">Skilled supervisors and technicians</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">Well-trained electricians and helpers</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">Professional tools and equipment for every team member</span>
-                  </li>
-                  <li className="flex items-start gap-4">
-                    <CheckCircle2 className="w-6 h-6 text-green-500 mt-0.5 flex-shrink-0" />
-                    <span className="text-lg">Committed to delivering high-quality service</span>
-                  </li>
-                </ul>
-              </Card>
-            </motion.div>
-          </div>
+          ))}
         </div>
-      </section>
+
+        <motion.button
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5, delay: 0.4 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold text-sm shadow-md hover:shadow-lg hover:bg-blue-700 transition-all duration-300"
+        >
+          Learn More
+        </motion.button>
+      </motion.div>
+
+      {/* RIGHT IMAGE — no container or background */}
+      <motion.img
+        src="https://i.postimg.cc/gkr9WH27/Peach-Orange-and-Red-Human-Illustration-Classroom-Rules-Blank-Education-Presentation.png"
+        alt="Facilities"
+        className="w-[100%] sm:w-[90%] md:w-[85%] lg:w-[95%] xl:w-[90%] mx-auto lg:mx-0 h-[80vh] object-contain"
+  initial={{ opacity: 0, x: 40 }}
+  whileInView={{ opacity: 1, x: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7 }}
+  whileHover={{ scale: 1.05, rotate: 1 }}
+  animate={{ y: [0, -10, 0] }}
+  style={{
+    filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.25))',
+  }}
+      />
+    </div>
+  </div>
+</section>
 
       {/* Achievements Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-blue-600 to-blue-700 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
+  <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
+        <div className="absolute inset-0 opacity-5">
           <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
+            backgroundImage: 'radial-gradient(circle at 2px 2px, #3b82f6 1px, transparent 0)',
+            backgroundSize: '50px 50px'
           }}></div>
         </div>
 
@@ -2220,148 +2208,300 @@ const Card = ({ className, children }: CardProps) => (
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Our Achievements & Milestones
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              Celebrating excellence and continuous growth in the MEP industry
-            </p>
+            <motion.h2 
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7 }}
+              className="text-4xl md:text-5xl font-bold mb-4 text-gray-800"
+            >
+              Our Achievements
+            </motion.h2>
+            <motion.p 
+              initial={{ opacity: 0 }}
+              whileInView={{ opacity: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.7, delay: 0.2 }}
+              className="text-xl text-gray-600 max-w-2xl mx-auto"
+            >
+              Excellence and growth in the MEP industry
+            </motion.p>
           </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
             {[
               {
                 icon: Rocket,
                 title: 'Rapid Growth',
-                description: 'From startup to industry leader in just 5 years with consistent year-over-year growth'
+                description: 'From startup to industry leader in just 5 years with consistent year-over-year growth',
+                number: '01',
+                color: 'from-red-500 to-red-600',
+                delay: 0
               },
               {
                 icon: Star,
                 title: 'Client Satisfaction',
-                description: '95%+ client satisfaction rate with repeat business from major corporations'
+                description: '95%+ client satisfaction rate with repeat business from major corporations',
+                number: '02',
+                color: 'from-blue-500 to-blue-600',
+                delay: 0.15
               },
               {
                 icon: Award,
                 title: 'Industry Recognition',
-                description: 'Recognized for quality work and timely delivery across industrial sectors'
+                description: 'Recognized for quality work and timely delivery across industrial sectors',
+                number: '03',
+                color: 'from-orange-500 to-orange-600',
+                delay: 0.3
               },
               {
                 icon: Globe,
                 title: 'Pan-India Presence',
-                description: 'Successfully completed projects across multiple states in India'
+                description: 'Successfully completed projects across multiple states in India',
+                number: '04',
+                color: 'from-lime-500 to-lime-600',
+                delay: 0.45
               },
               {
                 icon: Shield,
                 title: 'Zero Accidents',
-                description: 'Maintained exemplary safety record with zero major accidents'
+                description: 'Maintained exemplary safety record with zero major accidents',
+                number: '05',
+                color: 'from-purple-500 to-purple-600',
+                delay: 0.6
               },
               {
                 icon: TrendingUp,
                 title: 'Project Success',
-                description: '100% project completion rate within agreed timelines and budgets'
+                description: '100% project completion rate within agreed timelines and budgets',
+                number: '06',
+                color: 'from-teal-500 to-teal-600',
+                delay: 0.75
               },
-            ].map((achievement, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-              >
-                <Card className="p-8 h-full bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-2xl">
-                  <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                    <achievement.icon className="w-8 h-8 text-blue-600" />
+            ].map((achievement, index) => {
+              const isEven = index % 2 === 0;
+              return (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 50 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true, margin: "-50px" }}
+                  transition={{ 
+                    duration: 0.6, 
+                    delay: achievement.delay,
+                    type: "spring",
+                    stiffness: 100
+                  }}
+                  className="group"
+                >
+                  <div className="flex items-stretch gap-4 h-full">
+                    {isEven ? (
+                      <>
+                        <motion.div
+                          whileHover={{ scale: 1.08, rotate: 3 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                          className={`w-32 md:w-36 rounded-2xl bg-gradient-to-br ${achievement.color} text-white flex flex-col items-center justify-center p-4 md:p-6 shadow-lg group-hover:shadow-2xl transition-shadow duration-300 relative overflow-hidden`}
+                        >
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: achievement.delay + 0.3, type: "spring" }}
+                            className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                          />
+                          <motion.span 
+                            initial={{ scale: 0, rotate: -180 }}
+                            whileInView={{ scale: 1, rotate: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: achievement.delay + 0.2, type: "spring" }}
+                            className="text-4xl md:text-5xl font-bold mb-2 relative z-10"
+                          >
+                            {achievement.number}
+                          </motion.span>
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: achievement.delay + 0.4, type: "spring" }}
+                            className="relative z-10"
+                          >
+                            <achievement.icon className="w-7 h-7 md:w-8 md:h-8 opacity-90" />
+                          </motion.div>
+                        </motion.div>
+                        <motion.div
+                          whileHover={{ scale: 1.03, x: 5 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                          className="flex-1 bg-white rounded-2xl p-5 md:p-6 shadow-md group-hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                        >
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "100%" }}
+                            viewport={{ once: true }}
+                            transition={{ delay: achievement.delay + 0.5, duration: 0.6 }}
+                            className={`absolute top-0 left-0 h-1 bg-gradient-to-r ${achievement.color}`}
+                          />
+                          <div className="flex items-start gap-3 mb-3">
+                            <motion.div 
+                              whileHover={{ rotate: 360 }}
+                              transition={{ duration: 0.5 }}
+                              className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br ${achievement.color} flex items-center justify-center flex-shrink-0 shadow-md`}
+                            >
+                              <achievement.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                            </motion.div>
+                            <h3 className="text-lg md:text-xl font-bold text-gray-800 leading-tight">{achievement.title}</h3>
+                          </div>
+                          <p className="text-gray-600 text-sm md:text-base leading-relaxed">{achievement.description}</p>
+                        </motion.div>
+                      </>
+                    ) : (
+                      <>
+                        <motion.div
+                          whileHover={{ scale: 1.03, x: -5 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                          className="flex-1 bg-white rounded-2xl p-5 md:p-6 shadow-md group-hover:shadow-xl transition-all duration-300 relative overflow-hidden"
+                        >
+                          <motion.div
+                            initial={{ width: 0 }}
+                            whileInView={{ width: "100%" }}
+                            viewport={{ once: true }}
+                            transition={{ delay: achievement.delay + 0.5, duration: 0.6 }}
+                            className={`absolute top-0 left-0 h-1 bg-gradient-to-r ${achievement.color}`}
+                          />
+                          <div className="flex items-start gap-3 mb-3">
+                            <motion.div 
+                              whileHover={{ rotate: 360 }}
+                              transition={{ duration: 0.5 }}
+                              className={`w-10 h-10 md:w-12 md:h-12 rounded-xl bg-gradient-to-br ${achievement.color} flex items-center justify-center flex-shrink-0 shadow-md`}
+                            >
+                              <achievement.icon className="w-5 h-5 md:w-6 md:h-6 text-white" />
+                            </motion.div>
+                            <h3 className="text-lg md:text-xl font-bold text-gray-800 leading-tight">{achievement.title}</h3>
+                          </div>
+                          <p className="text-gray-600 text-sm md:text-base leading-relaxed">{achievement.description}</p>
+                        </motion.div>
+                        <motion.div
+                          whileHover={{ scale: 1.08, rotate: -3 }}
+                          transition={{ type: "spring", stiffness: 300 }}
+                          className={`w-32 md:w-36 rounded-2xl bg-gradient-to-br ${achievement.color} text-white flex flex-col items-center justify-center p-4 md:p-6 shadow-lg group-hover:shadow-2xl transition-shadow duration-300 relative overflow-hidden`}
+                        >
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: achievement.delay + 0.3, type: "spring" }}
+                            className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"
+                          />
+                          <motion.span 
+                            initial={{ scale: 0, rotate: -180 }}
+                            whileInView={{ scale: 1, rotate: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: achievement.delay + 0.2, type: "spring" }}
+                            className="text-4xl md:text-5xl font-bold mb-2 relative z-10"
+                          >
+                            {achievement.number}
+                          </motion.span>
+                          <motion.div
+                            initial={{ scale: 0 }}
+                            whileInView={{ scale: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ delay: achievement.delay + 0.4, type: "spring" }}
+                            className="relative z-10"
+                          >
+                            <achievement.icon className="w-7 h-7 md:w-8 md:h-8 opacity-90" />
+                          </motion.div>
+                        </motion.div>
+                      </>
+                    )}
                   </div>
-                  <h3 className="text-2xl font-bold mb-4">{achievement.title}</h3>
-                  <p className="text-blue-100 text-lg leading-relaxed">{achievement.description}</p>
-                </Card>
-              </motion.div>
-            ))}
+                </motion.div>
+              );
+            })}
           </div>
         </div>
       </section>
 
       {/* CTA Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-gray-900 to-blue-900 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '50px 50px'
-          }}></div>
+  <section className="relative overflow-hidden py-12 bg-gradient-to-br from-gray-900 to-blue-800 text-white">
+  <div className="absolute inset-0 opacity-5 bg-[url('/path/to/subtle-pattern.svg')] bg-repeat"></div>
+  <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6">
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-10"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold mb-4">
+        Ready to Get Started?
+      </h2>
+      <p className="text-base md:text-lg text-blue-200 max-w-xl mx-auto">
+        Let’s work together to bring your project to life. Reach out and we’ll guide you every step of the way.
+      </p>
+    </motion.div>
+
+    <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+      {/* Card 1 */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.1 }}
+        className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-colors duration-300"
+      >
+        <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center rounded-full bg-blue-600 text-white">
+          <MapPin className="w-6 h-6" />
         </div>
-        
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 text-center relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-8">
-              Ready to Start Your Project?
-            </h2>
-            <p className="text-xl text-blue-100 mb-12 max-w-3xl mx-auto leading-relaxed">
-              Let us be your partner in delivering world-class MEP solutions. Contact us today for a consultation and discover how we can transform your project.
-            </p>
-            
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-12">
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.1 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 shadow-xl"
-              >
-                <MapPin className="w-12 h-12 mx-auto mb-4 text-blue-300" />
-                <h3 className="font-bold text-xl mb-3">Location</h3>
-                <p className="text-blue-100">
-                  42.7 KM Delhi-Jaipur Highway<br />
-                  Sector 81, Gurgaon
-                </p>
-              </motion.div>
+        <h3 className="font-semibold text-lg mb-1">Location</h3>
+        <p className="text-blue-100 text-sm leading-snug">
+          42.7 KM Delhi–Jaipur Highway<br />
+          Sector 81, Gurugram
+        </p>
+      </motion.div>
 
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.2 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 shadow-xl"
-              >
-                <Mail className="w-12 h-12 mx-auto mb-4 text-blue-300" />
-                <h3 className="font-bold text-xl mb-3">Email</h3>
-                <p className="text-blue-100">
-                  bcnmepsolutions@gmail.com<br />
-                  bcnservices6@gmail.com
-                </p>
-              </motion.div>
-
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: 0.3 }}
-                className="bg-white/10 backdrop-blur-sm rounded-2xl p-8 hover:bg-white/20 transition-all duration-300 shadow-xl"
-              >
-                <Phone className="w-12 h-12 mx-auto mb-4 text-blue-300" />
-                <h3 className="font-bold text-xl mb-3">Phone</h3>
-                <p className="text-blue-100">
-                  +91-8930372989<br />
-                  +91-7988466243
-                </p>
-              </motion.div>
-            </div>
-
-            <motion.button
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              className="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-3 mx-auto"
-            >
-              Get In Touch <ArrowRight className="w-6 h-6" />
-            </motion.button>
-          </motion.div>
+      {/* Card 2 */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.2 }}
+        className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-colors duration-300"
+      >
+        <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center rounded-full bg-blue-600 text-white">
+          <Mail className="w-6 h-6" />
         </div>
-      </section>
+        <h3 className="font-semibold text-lg mb-1">Email</h3>
+        <p className="text-blue-100 text-sm leading-snug">
+          bcnmepsolutions@gmail.com<br />
+          bcnservices6@gmail.com
+        </p>
+      </motion.div>
+
+      {/* Card 3 */}
+      <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5, delay: 0.3 }}
+        className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-colors duration-300"
+      >
+        <div className="w-12 h-12 mx-auto mb-3 flex items-center justify-center rounded-full bg-blue-600 text-white">
+          <Phone className="w-6 h-6" />
+        </div>
+        <h3 className="font-semibold text-lg mb-1">Phone</h3>
+        <p className="text-blue-100 text-sm leading-snug">
+          +91-89303 72989<br />
+          +91-79884 66243
+        </p>
+      </motion.div>
+    </div>
+
+    <motion.button
+      whileHover={{ scale: 1.04 }}
+      whileTap={{ scale: 0.96 }}
+      className="mx-auto block bg-blue-600 text-white px-8 py-3 rounded-lg font-semibold text-base shadow-lg hover:bg-blue-700 transition-colors duration-300"
+    >
+      Get in Touch
+    </motion.button>
+  </div>
+</section>
+
     </div>
   );
 }
