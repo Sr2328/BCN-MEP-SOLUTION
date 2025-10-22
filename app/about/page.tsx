@@ -958,10 +958,11 @@
 
 'use client';
 import { useEffect, useState } from 'react';
-import { motion } from 'framer-motion';
-import { Target, Eye, Shield, Award, Clock, TrendingUp, CheckCircle2, Users, Zap, Wrench, HeartHandshake, Lightbulb, ThumbsUp, Rocket, Star, Globe, Phone, Mail, MapPin, ArrowRight, Building2, HardHat, FileCheck, Settings, Briefcase, BadgeCheck, Heart } from 'lucide-react';
+import { AnimatePresence, motion } from 'framer-motion';
+import { Target, Eye, Shield, Award, Clock, TrendingUp, CheckCircle2, Users, Zap, Wrench, HeartHandshake, Lightbulb, ThumbsUp, Rocket, Star, Globe, Phone, Mail, MapPin, ArrowRight, Building2, HardHat, FileCheck, Settings, Briefcase, BadgeCheck, Heart, Sparkles } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import React from 'react';
+import { Span } from 'next/dist/trace';
 
 const processSteps = [
   {
@@ -1004,29 +1005,37 @@ const processSteps = [
 
 const teamMembers = [
   {
-    name: 'Engineering Team',
-    role: 'Design & Planning',
-    icon: HardHat,
-    description: 'Expert engineers with decades of combined experience',
+    name: "Sarah Johnson",
+    role: "MEP Director",
+    description: "Leading strategic initiatives and overseeing project excellence across all departments.",
+    icon: Users,
+    image: "https://images.unsplash.com/photo-1494790108377-be9c29b29330?w=400&h=600&fit=crop",
+    category: "Leadership"
   },
   {
-    name: 'Project Managers',
-    role: 'Execution & Delivery',
+    name: "Michael Chen",
+    role: "Senior Engineer",
+    description: "Specializing in mechanical systems design and sustainable building solutions.",
     icon: Briefcase,
-    description: 'Ensuring projects are completed on time and within budget',
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=600&fit=crop",
+    category: "Writing"
   },
   {
-    name: 'Technical Staff',
-    role: 'Installation & Testing',
-    icon: Settings,
-    description: 'Skilled technicians for precise implementation',
+    name: "Emily Rodriguez",
+    role: "Project Manager",
+    description: "Coordinating complex MEP projects with precision and attention to detail.",
+    icon: Target,
+    image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=400&h=600&fit=crop",
+    category: "Business"
   },
   {
-    name: 'Quality Assurance',
-    role: 'Standards & Safety',
-    icon: BadgeCheck,
-    description: 'Maintaining highest quality and safety standards',
-  },
+    name: "David Kumar",
+    role: "Innovation Lead",
+    description: "Driving technological advancement and implementing cutting-edge MEP solutions.",
+    icon: Lightbulb,
+    image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=400&h=600&fit=crop",
+    category: "Innovation"
+  }
 ];
 
 export default function AboutPage() {
@@ -1058,6 +1067,23 @@ export default function AboutPage() {
 
     return () => clearInterval(interval);
   }, []);
+
+interface CardProps {
+  className?: string;
+  children: React.ReactNode;
+}
+
+const Card = ({ className, children }: CardProps) => (
+  <div className={className}>{children}</div>
+);
+
+ {
+  const [expandedIndex, setExpandedIndex] = useState<number | null>(null);
+
+  const handleCardClick = (index: number) => {
+    setExpandedIndex(prev => (prev === index ? null : index));
+  };
+
 
   const values = [
     {
@@ -1103,6 +1129,7 @@ export default function AboutPage() {
       bgGlow: 'group-hover:shadow-red-500/50'
     }
   ];
+  
 
   return (
     <div className="bg-white overflow-x-hidden">
@@ -1651,68 +1678,252 @@ export default function AboutPage() {
 
 
       {/* Team Section */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Expert Team
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              Dedicated professionals committed to delivering excellence in every project
-            </p>
-          </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            {teamMembers.map((member, index) => (
+<section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        {/* Header Section */}
+  <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7 }}
+  className="mb-14 text-center md:text-left"
+>
+  <h2 className="text-3xl sm:text-4xl md:text-5xl font-extrabold text-gray-900 mb-4 leading-tight">
+    D<span className="text-blue-600">ream. </span>
+    D<span className="text-blue-600">esign. </span> 
+    D<span className="text-blue-600">eliver. </span> 
+  
+  </h2>
+  <p className="text-gray-600 text-base sm:text-lg md:text-xl max-w-2xl">
+    Meet the brilliant minds driving innovation and precision at BCN MEP — where teamwork builds excellence.
+  </p>
+</motion.div>
+
+
+        {/* Team Grid */}
+        <div className="flex gap-4 h-[500px]">
+          {teamMembers.map((member, index) => {
+            const isExpanded = expandedIndex === index;
+            const isOtherExpanded = expandedIndex !== null && expandedIndex !== index;
+            
+            return (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -10 }}
+                initial={{ opacity: 0 }}
+                animate={{ 
+                  opacity: 1,
+                  flex: isExpanded ? '1 1 45%' : isOtherExpanded ? '1 1 15%' : '1 1 25%'
+                }}
+                transition={{ duration: 0.5, ease: "easeInOut" }}
+                onClick={() => handleCardClick(index)}
+                className="relative cursor-pointer overflow-hidden rounded-2xl group"
+                style={{
+                  backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url(${member.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
               >
-                <Card className="p-8 text-center h-full hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-400">
-                  <div className="w-24 h-24 bg-gradient-to-br from-blue-600 to-blue-700 rounded-full flex items-center justify-center mx-auto mb-6 shadow-xl">
-                    <member.icon className="w-12 h-12 text-white" />
+                {/* Overlay Content */}
+                <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
+                  {/* Top Section - Always Visible */}
+                  <div className="flex items-start justify-between">
+                    <motion.div
+                      animate={{
+                        opacity: isExpanded ? 0 : 1
+                      }}
+                      transition={{ duration: 0.3 }}
+                      className="origin-top-left"
+                    >
+                      <div className={`${isOtherExpanded ? 'writing-mode-vertical text-lg' : 'text-xl'} font-semibold transform transition-all duration-300`}>
+                        {member.category}
+                      </div>
+                    </motion.div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-2">
-                    {member.name}
-                  </h3>
-                  <p className="text-blue-600 font-semibold mb-4">{member.role}</p>
-                  <p className="text-gray-600">{member.description}</p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
 
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            className="mt-16 text-center"
-          >
-            <Card className="p-10 max-w-4xl mx-auto shadow-xl border-2 border-blue-200">
-              <h3 className="text-2xl font-bold text-gray-900 mb-4">
-                Join Our Growing Team
-              </h3>
-              <p className="text-gray-600 text-lg mb-6">
-                We're always looking for talented professionals who share our passion for excellence. If you're ready to make an impact in the MEP industry, we'd love to hear from you.
-              </p>
-              <button className="px-8 py-4 bg-blue-600 text-white rounded-lg font-semibold shadow-lg hover:bg-blue-700 hover:shadow-xl transition-all duration-300">
-                View Opportunities
-              </button>
-            </Card>
-          </motion.div>
+                  {/* Bottom Section */}
+                  <div>
+                    <AnimatePresence mode="wait">
+                      {isExpanded ? (
+                        <motion.div
+                          initial={{ opacity: 0, y: 20 }}
+                          animate={{ opacity: 1, y: 0 }}
+                          exit={{ opacity: 0, y: 20 }}
+                          transition={{ duration: 0.4 }}
+                        >
+                          <h3 className="text-3xl font-bold mb-2">{member.name}</h3>
+                          <p className="text-xl text-blue-300 mb-4">{member.role}</p>
+                          <p className="text-sm leading-relaxed opacity-90 mb-6">
+                            {member.description}
+                          </p>
+                          <div className="flex items-center justify-between">
+                            <span className="text-5xl font-bold">100</span>
+                            <button className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors">
+                              Go
+                            </button>
+                          </div>
+                          <span className="text-xs opacity-75 mt-2 block">Topics</span>
+                        </motion.div>
+                      ) : (
+                        <motion.div
+                          initial={{ opacity: 0 }}
+                          animate={{ opacity: 1 }}
+                          exit={{ opacity: 0 }}
+                          transition={{ duration: 0.3 }}
+                        >
+                          {!isOtherExpanded && (
+                            <>
+                              <div className="text-sm opacity-90 mb-2">{member.category}</div>
+                              <div className="flex items-end justify-between">
+                                <div>
+                                  <h3 className="text-2xl font-bold mb-1">{member.role}</h3>
+                                </div>
+                                <div className="text-right">
+                                  <div className="text-4xl font-bold">100</div>
+                                  <div className="text-xs opacity-75">Topics</div>
+                                </div>
+                              </div>
+                            </>
+                          )}
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+
+                  {/* Play Button Overlay */}
+                  <motion.div
+                    className="absolute inset-0 flex items-center justify-center"
+                    animate={{
+                      opacity: isExpanded ? 0 : 1
+                    }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    <div className="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all">
+                      <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-gray-800 border-b-8 border-b-transparent ml-1"></div>
+                    </div>
+                  </motion.div>
+                </div>
+              </motion.div>
+            );
+          })}
         </div>
-      </section>
+
+        {/* Enhanced CTA Section */}
+       <motion.div
+  initial={{ opacity: 0, y: 30 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: true }}
+  transition={{ duration: 0.7, delay: 0.2 }}
+  className="mt-20"
+>
+  <div className="relative overflow-hidden">
+    {/* Soft Background Blobs */}
+    <div className="absolute inset-0 opacity-10">
+      <div className="absolute top-0 left-0 w-40 h-40 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
+      <div className="absolute bottom-0 right-0 w-40 h-40 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+    </div>
+
+    <Card className="relative px-6 py-10 sm:px-8 sm:py-14 max-w-6xl mx-auto bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white rounded-3xl shadow-xl">
+      <div className="relative z-10 text-center">
+        {/* Small Badge */}
+        <motion.div
+          initial={{ scale: 0 }}
+          whileInView={{ scale: 1 }}
+          transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
+          className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full mb-4"
+        >
+          <TrendingUp className="w-4 h-4" />
+          <span className="text-xs font-semibold">We’re Hiring!</span>
+        </motion.div>
+
+        {/* Heading */}
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.4 }}
+          className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 leading-snug"
+        >
+          Build the
+          <span className="block bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
+            Future of MEP with Us
+          </span>
+        </motion.h3>
+
+        {/* Description */}
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.5 }}
+          className="text-sm sm:text-base md:text-lg text-blue-50 mb-8 max-w-3xl mx-auto leading-relaxed"
+        >
+          Join a passionate team shaping modern MEP innovations with precision, collaboration, and purpose.
+        </motion.p>
+
+        {/* Stats */}
+   
+
+        {/* CTA Buttons */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ delay: 0.7 }}
+          className="flex flex-col sm:flex-row items-center justify-center gap-3"
+        >
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
+          >
+            Explore Opportunities
+          </motion.button>
+
+          <motion.button
+            whileHover={{ scale: 1.05 }}
+            whileTap={{ scale: 0.95 }}
+            className="px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-700 transition-all duration-300"
+          >
+            Learn More
+          </motion.button>
+        </motion.div>
+
+        {/* Footer note */}
+        <p className="mt-5 text-xs text-blue-100 flex items-center justify-center gap-2">
+          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+          Currently hiring for 5+ positions
+        </p>
+      </div>
+    </Card>
+  </div>
+</motion.div>
+
+      </div>
+
+      <style jsx>{`
+        .writing-mode-vertical {
+          writing-mode: vertical-rl;
+          text-orientation: mixed;
+        }
+        
+        @keyframes blob {
+          0%, 100% { transform: translate(0, 0) scale(1); }
+          25% { transform: translate(20px, -50px) scale(1.1); }
+          50% { transform: translate(-20px, 20px) scale(0.9); }
+          75% { transform: translate(50px, 50px) scale(1.05); }
+        }
+        
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+      `}</style>
+    </section>
 
       {/* Clients Section */}
       <section className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-blue-50">
@@ -2035,4 +2246,5 @@ export default function AboutPage() {
       </section>
     </div>
   );
+}
 }
