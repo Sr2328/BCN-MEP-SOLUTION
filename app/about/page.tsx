@@ -957,15 +957,11 @@
 
 
 'use client';
-
-import { JSX, JSXElementConstructor, Key, PromiseLikeOfReactNode, ReactElement, ReactNode, ReactPortal, useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Target, Eye, Shield, Award, Clock, TrendingUp, CheckCircle2, Users, Zap, Wrench, HeartHandshake, Lightbulb, ThumbsUp, Rocket, Star, Globe, Phone, Mail, MapPin, ArrowRight, Building2, HardHat, FileCheck, Settings, Briefcase, BadgeCheck, Heart } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import React from 'react';
-
-
-
 
 const processSteps = [
   {
@@ -1035,6 +1031,7 @@ const teamMembers = [
 
 export default function AboutPage() {
   const [count, setCount] = useState({ projects: 0, clients: 0, years: 0, team: 0 });
+  const [activeValue, setActiveValue] = useState(0);
 
   useEffect(() => {
     const duration = 2000;
@@ -1061,8 +1058,6 @@ export default function AboutPage() {
 
     return () => clearInterval(interval);
   }, []);
-  const CoreValuesSection = () => {
-  const [activeValue, setActiveValue] = useState(0);
 
   const values = [
     {
@@ -1109,498 +1104,498 @@ export default function AboutPage() {
     }
   ];
 
-
   return (
     <div className="bg-white overflow-x-hidden">
       {/* Hero Section */}
-     
-<section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100">
-  <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
-    {/* LEFT SIDE TEXT */}
-    <motion.div
-      initial={{ opacity: 0, x: -40 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8 }}
-      className="text-left"
-    >
-      <p className="text-blue-600 font-semibold mb-3">
-        Integrated MEP Engineering Excellence
-      </p>
+      <section className="relative overflow-hidden bg-gradient-to-br from-blue-50 via-white to-blue-100">
+        <div className="max-w-7xl mx-auto px-4 py-16 md:py-24 grid md:grid-cols-2 gap-10 items-center">
+          {/* LEFT SIDE TEXT */}
+          <motion.div
+            initial={{ opacity: 0, x: -40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8 }}
+            className="text-left"
+          >
+            <p className="text-blue-600 font-semibold mb-3">
+              Integrated MEP Engineering Excellence
+            </p>
+            <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
+              <span className="text-blue-700">Engineering Systems</span> that Power
+              <br />
+              <span className="text-gray-800">Performance & Sustainability</span>
+            </h1>
+            <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
+              BCN MEP delivers innovative, efficient, and reliable Mechanical,
+              Electrical, and Plumbing solutions that transform spaces into
+              high-performing, sustainable environments.
+            </p>
+            <div className="flex flex-wrap gap-3">
+              <button className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 text-sm shadow-md">
+                Get Started
+              </button>
+              <button className="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300 text-sm">
+                Learn More
+              </button>
+            </div>
+          </motion.div>
 
-      <h1 className="text-4xl md:text-5xl font-extrabold text-gray-900 leading-tight mb-4">
-        <span className="text-blue-700">Engineering Systems</span> that Power
-        <br />
-        <span className="text-gray-800">Performance & Sustainability</span>
-      </h1>
-
-      <p className="text-gray-600 mb-6 max-w-md leading-relaxed">
-        BCN MEP delivers innovative, efficient, and reliable Mechanical,
-        Electrical, and Plumbing solutions that transform spaces into
-        high-performing, sustainable environments.
-      </p>
-
-      <div className="flex flex-wrap gap-3">
-        <button className="px-6 py-3 bg-blue-600 text-white rounded-lg font-semibold hover:bg-blue-700 transition-all duration-300 text-sm shadow-md">
-          Get Started
-        </button>
-        <button className="px-6 py-3 bg-white text-blue-600 rounded-lg font-semibold border-2 border-blue-600 hover:bg-blue-50 transition-all duration-300 text-sm">
-          Learn More
-        </button>
-      </div>
-    </motion.div>
-
-    {/* RIGHT SIDE IMAGE — larger, clean, no container */}
-    <motion.img
-      src="https://i.postimg.cc/VNF22FPZ/Blue-Smartphone-Promo-Poster-3-1.png"
-      alt="BCN MEP Systems"
-      className="w-full md:w-[105%] h-80 md:h-[460px] object-contain transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-1 select-none"
-      initial={{ opacity: 0, x: 40 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.8, delay: 0.2 }}
-      whileHover={{
-        scale: 1.1,
-        rotate: 1,
-        transition: { duration: 0.4 },
-      }}
-    />
-  </div>
-</section>
+          {/* RIGHT SIDE IMAGE */}
+          <motion.img
+            src="https://i.postimg.cc/VNF22FPZ/Blue-Smartphone-Promo-Poster-3-1.png"
+            alt="BCN MEP Systems"
+            className="w-full md:w-[105%] h-80 md:h-[460px] object-contain transition-transform duration-500 ease-in-out hover:scale-110 hover:rotate-1 select-none"
+            initial={{ opacity: 0, x: 40 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, delay: 0.2 }}
+            whileHover={{
+              scale: 1.1,
+              rotate: 1,
+              transition: { duration: 0.4 },
+            }}
+          />
+        </div>
+      </section>
 
       {/* Stats Section */}
-       <section className="py-16 bg-gradient-to-bl from-gray-50 via-white to-gray-100 relative overflow-hidden">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
-          {(() => {
-            const status = [
-              { color: 'from-blue-500 to-blue-600', icon: Target, value: count.projects, suffix: '+', label: 'Completed Projects' },
-              { color: 'from-cyan-500 to-cyan-600', icon: Users, value: count.clients, suffix: '+', label: 'Satisfied Clients' },
-              { color: 'from-purple-500 to-purple-600', icon: Clock, value: count.years, suffix: '+', label: 'Years of Excellence' },
-              { color: 'from-green-500 to-emerald-500', icon: Award, value: count.team, suffix: '+', label: 'Team Members' },
-            ];
-            return status.map((stat, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -6, scale: 1.03 }}
-              >
-                <Card className="p-6 md:p-8 bg-white/70 backdrop-blur-md border border-gray-200 shadow-md hover:shadow-xl rounded-2xl transition-all duration-300 text-center">
-                  <div className={`w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-tr ${stat.color} flex items-center justify-center shadow-inner`}>
-                    <stat.icon className="w-7 h-7 text-white" />
-                  </div>
-                  <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-1">
-                    {stat.value}{stat.suffix}
-                  </h3>
-                  <p className="text-gray-600 font-medium text-sm md:text-base">{stat.label}</p>
-                </Card>
-              </motion.div>
-            ));
-          })()}
+      <section className="py-16 bg-gradient-to-bl from-gray-50 via-white to-gray-100 relative overflow-hidden">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 md:gap-8">
+            {(() => {
+              const status = [
+                { color: 'from-blue-500 to-blue-600', icon: Target, value: count.projects, suffix: '+', label: 'Completed Projects' },
+                { color: 'from-cyan-500 to-cyan-600', icon: Users, value: count.clients, suffix: '+', label: 'Satisfied Clients' },
+                { color: 'from-purple-500 to-purple-600', icon: Clock, value: count.years, suffix: '+', label: 'Years of Excellence' },
+                { color: 'from-green-500 to-emerald-500', icon: Award, value: count.team, suffix: '+', label: 'Team Members' },
+              ];
+              return status.map((stat, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  viewport={{ once: true }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
+                  whileHover={{ y: -6, scale: 1.03 }}
+                >
+                  <Card className="p-6 md:p-8 bg-white/70 backdrop-blur-md border border-gray-200 shadow-md hover:shadow-xl rounded-2xl transition-all duration-300 text-center">
+                    <div className={`w-14 h-14 mx-auto mb-4 rounded-xl bg-gradient-to-tr ${stat.color} flex items-center justify-center shadow-inner`}>
+                      <stat.icon className="w-7 h-7 text-white" />
+                    </div>
+                    <h3 className="text-4xl md:text-5xl font-extrabold text-gray-900 mb-1">
+                      {stat.value}{stat.suffix}
+                    </h3>
+                    <p className="text-gray-600 font-medium text-sm md:text-base">{stat.label}</p>
+                  </Card>
+                </motion.div>
+              ));
+            })()}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
 
       {/* About Section */}
       <section className="py-12 md:py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
-          
-          {/* Left Text Section */}
-          <motion.div
-            initial={{ opacity: 0, x: -20 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-          >
-            <span className="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold mb-4 shadow-sm">
-              About BCN MEP Solutions
-            </span>
-
-            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-snug">
-              Pioneering Industrial 
-              <br></br>
-              <span className="text-blue-600">
-              MEP Excellence Since 2020
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 items-center">
+            {/* Left Text Section */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <span className="inline-block px-4 py-2 bg-blue-100 text-blue-600 rounded-full text-xs font-semibold mb-4 shadow-sm">
+                About BCN MEP Solutions
               </span>
+              <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-4 leading-snug">
+                Pioneering Industrial 
+                <br />
+                <span className="text-blue-600">
+                  MEP Excellence Since 2020
+                </span>
+              </h2>
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
+                Founded in 2020, BCN MEP Solutions Pvt. Ltd. has rapidly become a trusted name in the industrial MEP domain — delivering innovative, efficient, and high-quality solutions for diverse projects across sectors.
+              </p>
+              <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
+                Headquartered in Gurgaon, we provide end-to-end MEP, Electrical Contracting, and Utility Services — including industrial pipelines, LV systems, and complete firefighting installations.
+              </p>
+              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                <motion.div 
+                  whileHover={{ scale: 1.03 }}
+                  className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Award className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 text-sm mb-1">Certified Excellence</h4>
+                    <p className="text-xs text-gray-600">Quality Standards & Recognition</p>
+                  </div>
+                </motion.div>
+                <motion.div 
+                  whileHover={{ scale: 1.03 }}
+                  className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all"
+                >
+                  <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
+                    <Shield className="w-5 h-5 text-blue-600" />
+                  </div>
+                  <div>
+                    <h4 className="font-semibold text-gray-900 text-sm mb-1">Safety First</h4>
+                    <p className="text-xs text-gray-600">Uncompromising Priority</p>
+                  </div>
+                </motion.div>
+              </div>
+            </motion.div>
 
-            </h2>
+            {/* Right Image Section */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="relative"
+            >
+              <div className="relative rounded-2xl overflow-hidden shadow-xl">
+                <img
+                  src="https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=800"
+                  alt="BCN MEP Construction"
+                  className="w-full h-[350px] md:h-[420px] object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-blue-600 rounded-2xl -z-10 opacity-20"></div>
+              <div className="absolute -top-6 -left-6 w-40 h-40 bg-blue-400 rounded-2xl -z-10 opacity-20"></div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
 
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-4">
-              Founded in 2020, BCN MEP Solutions Pvt. Ltd. has rapidly become a trusted name in the industrial MEP domain — delivering innovative, efficient, and high-quality solutions for diverse projects across sectors.
-            </p>
-            <p className="text-gray-600 text-sm md:text-base leading-relaxed mb-6">
-              Headquartered in Gurgaon, we provide end-to-end MEP, Electrical Contracting, and Utility Services — including industrial pipelines, LV systems, and complete firefighting installations.
-            </p>
-
-            <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-              <motion.div 
-                whileHover={{ scale: 1.03 }}
-                className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all"
-              >
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Award className="w-5 h-5 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 text-sm mb-1">Certified Excellence</h4>
-                  <p className="text-xs text-gray-600">Quality Standards & Recognition</p>
-                </div>
-              </motion.div>
-
-              <motion.div 
-                whileHover={{ scale: 1.03 }}
-                className="flex items-start gap-3 p-4 bg-white rounded-xl shadow-md hover:shadow-lg transition-all"
-              >
-                <div className="w-10 h-10 bg-blue-100 rounded-lg flex items-center justify-center flex-shrink-0">
-                  <Shield className="w-5 h-5 text-blue-600" />
-                </div>
-                <div>
-                  <h4 className="font-semibold text-gray-900 text-sm mb-1">Safety First</h4>
-                  <p className="text-xs text-gray-600">Uncompromising Priority</p>
-                </div>
-              </motion.div>
-            </div>
-          </motion.div>
-
-          {/* Right Image Section */}
+      {/* Mission & Vision */}
+      <section className="py-12 md:py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+          {/* Heading */}
           <motion.div
-            initial={{ opacity: 0, x: 20 }}
-            whileInView={{ opacity: 1, x: 0 }}
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="relative"
+            className="text-center mb-10"
           >
-            <div className="relative rounded-2xl overflow-hidden shadow-xl">
-              <img
-                src="https://images.pexels.com/photos/159358/construction-site-build-construction-work-159358.jpeg?auto=compress&cs=tinysrgb&w=800"
-                alt="BCN MEP Construction"
-                className="w-full h-[350px] md:h-[420px] object-cover"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>
-            </div>
-            <div className="absolute -bottom-6 -right-6 w-40 h-40 bg-blue-600 rounded-2xl -z-10 opacity-20"></div>
-            <div className="absolute -top-6 -left-6 w-40 h-40 bg-blue-400 rounded-2xl -z-10 opacity-20"></div>
+            <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
+              Our
+              <span className="text-blue-600 ml-2">
+                Mission & Vision
+              </span>
+            </h2>
+            <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
+              Driving excellence through purpose and innovation
+            </p>
           </motion.div>
 
+          {/* Cards */}
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+            {[{
+              icon: Target,
+              title: 'Our Mission',
+              text: 'To be the preferred integrated MEPF solution provider delivering consistent quality, cost-effective solutions, and building strong partnerships with our clients.'
+            },
+            {
+              icon: Eye,
+              title: 'Our Vision',
+              text: 'To become a trusted industry leader in MEP services, known for safety, quality, reliability, and sustainable innovation across every project we deliver.'
+            }].map((card, i) => (
+              <motion.div
+                key={i}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: i * 0.1 }}
+                whileHover={{ y: -5, scale: 1.02 }}
+              >
+                <Card className="p-6 md:p-8 bg-white rounded-2xl shadow-md hover:shadow-xl border border-gray-100 transition-all duration-300 hover:border-blue-400 text-center">
+                  <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
+                    <card.icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
+                  </div>
+                  <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">
+                    {card.title}
+                  </h3>
+                  <p className="text-gray-600 text-sm md:text-base leading-relaxed">
+                    {card.text}
+                  </p>
+                </Card>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* Core Values */}
+      <section className="relative py-14 md:py-20  bg-gradient-to-br from-blue-50 via-white to-blue-100 overflow-hidden">
+  {/* Soft Animated Gradient Blobs */}
+
+
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    {/* Heading */}
+    <div className="text-center mb-10 md:mb-14">
+      <div className="inline-block mb-3">
+        <span className="inline-flex items-center gap-2 px-3 py-1.5 text-xs font-semibold text-blue-600 bg-blue-100 rounded-full">
+          <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
+          What Drives Us
+        </span>
+      </div>
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+        Our Core <span className="text-blue-600">Values</span>
+      </h2>
+      <p className="text-sm md:text-base text-gray-600 max-w-2xl mx-auto leading-relaxed">
+        The principles that drive our success and client satisfaction.
+      </p>
+    </div>
+
+    {/* Values Grid */}
+    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4 md:gap-6 mb-10">
+      {values.map((value, i) => {
+        const Icon = value.icon;
+        const isActive = activeValue === i;
+
+        return (
+          <div
+            key={i}
+            className="flex flex-col items-center group cursor-pointer"
+            onClick={() => setActiveValue(i)}
+          >
+            <div className="relative mb-3 transition-all duration-500 ease-out">
+              <div className={`absolute inset-0 bg-gradient-to-tr ${value.color} rounded-2xl blur-xl opacity-0 group-hover:opacity-40 transition-opacity duration-500 ${isActive ? 'opacity-30' : ''}`}></div>
+
+              <div className={`relative w-16 h-16 md:w-20 md:h-20 transition-all duration-500 ${isActive ? 'scale-105' : 'scale-100 group-hover:scale-105'}`}>
+                <div
+                  className={`absolute inset-0 bg-gradient-to-tr ${value.color} rounded-2xl transition-all duration-700 ${isActive ? 'rotate-6' : 'rotate-2 group-hover:rotate-3'}`}
+                  style={{
+                    animation: isActive ? 'float 3s ease-in-out infinite' : 'none'
+                  }}
+                ></div>
+
+                <div className={`relative w-full h-full bg-gradient-to-tr ${value.color} rounded-2xl flex items-center justify-center shadow-md transition-all duration-500 ${isActive ? `shadow-lg ${value.bgGlow}` : 'group-hover:shadow-lg'}`}>
+                  <Icon className="w-8 h-8 md:w-9 md:h-9 text-white" strokeWidth={2} />
+                </div>
+              </div>
+            </div>
+
+            <h3 className={`text-xs md:text-sm font-bold text-center transition-all duration-300 ${isActive ? 'text-gray-900 scale-105' : 'text-gray-700 group-hover:text-gray-900'}`}>
+              {value.name}
+            </h3>
+          </div>
+        );
+      })}
+    </div>
+
+    {/* Active Value Description Card */}
+    <div className="max-w-3xl mx-auto">
+      <div className="bg-white/90 backdrop-blur-xl rounded-2xl shadow-lg p-6 md:p-8 border border-white/20 transition-all duration-500">
+        <div className="flex items-start gap-4">
+          <div className={`flex-shrink-0 w-14 h-14 md:w-16 md:h-16 bg-gradient-to-tr ${values[activeValue].color} rounded-xl flex items-center justify-center shadow-lg`}>
+            {React.createElement(values[activeValue].icon, { className: "w-7 h-7 md:w-8 md:h-8 text-white", strokeWidth: 2 })}
+          </div>
+          <div className="flex-1">
+            <h3 className="text-lg md:text-xl font-bold text-gray-900 mb-2">
+              {values[activeValue].name}
+            </h3>
+            <p className="text-sm md:text-base text-gray-600 leading-relaxed">
+              {values[activeValue].description}
+            </p>
+          </div>
+        </div>
+
+        <div className="flex justify-center gap-2 mt-6">
+          {values.map((_, i) => (
+            <button
+              key={i}
+              onClick={() => setActiveValue(i)}
+              className={`transition-all duration-300 rounded-full ${activeValue === i ? 'w-6 h-2 bg-gradient-to-r from-blue-600 to-purple-600' : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'}`}
+              aria-label={`View ${values[i].name}`}
+            ></button>
+          ))}
         </div>
       </div>
-    </section>
-      {/* Mission & Vision */}
-         <section className="py-12 md:py-20 bg-gray-50">
-      <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-        
-        {/* Heading */}
+    </div>
+
+    <div className="mt-10 text-center">
+      <button className="group relative inline-flex items-center gap-2 px-6 py-3 bg-blue-600 text-white font-semibold rounded-full shadow-md hover:shadow-xl transition-all duration-500 hover:scale-105 overflow-hidden text-sm md:text-base">
+        <div className="absolute inset-0 bg-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+        <span className="relative">Discover More About Us</span>
+        <svg className="relative w-4 h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+        </svg>
+      </button>
+    </div>
+  </div>
+
+  <style jsx>{`
+    @keyframes float {
+      0%, 100% {
+        transform: translateY(0px) rotate(6deg);
+      }
+      50% {
+        transform: translateY(-8px) rotate(6deg);
+      }
+    }
+  `}</style>
+</section>
+
+
+      {/* Work Process Section */}
+     <section className="py-14 md:py-20 bg-gradient-to-br from-white via-slate-50 to-blue-50">
+  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-12 md:mb-16"
+    >
+      <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-3">
+        Our Work Process
+      </h2>
+      <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto">
+        A refined approach to deliver reliable, efficient, and innovative MEP solutions.
+      </p>
+    </motion.div>
+
+    {/* Process Steps */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {processSteps.map((step, index) => (
         <motion.div
+          key={index}
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-10"
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          whileHover={{ y: -6 }}
+          className="group"
         >
-          <h2 className="text-2xl md:text-3xl font-bold text-gray-900 mb-2">
-            Our
-            <span className="text-blue-600 ml-2">
-             Mission & Vision
-             </span>
-          </h2>
-          <p className="text-gray-600 text-sm md:text-base max-w-xl mx-auto">
-            Driving excellence through purpose and innovation
-          </p>
-        </motion.div>
-
-        {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-          {[{
-            icon: Target,
-            title: 'Our Mission',
-            text: 'To be the preferred integrated MEPF solution provider delivering consistent quality, cost-effective solutions, and building strong partnerships with our clients.'
-          },
-          {
-            icon: Eye,
-            title: 'Our Vision',
-            text: 'To become a trusted industry leader in MEP services, known for safety, quality, reliability, and sustainable innovation across every project we deliver.'
-          }].map((card, i) => (
-            <motion.div
-              key={i}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: i * 0.1 }}
-              whileHover={{ y: -5, scale: 1.02 }}
-            >
-              <Card className="p-6 md:p-8 bg-white rounded-2xl shadow-md hover:shadow-xl border border-gray-100 transition-all duration-300 hover:border-blue-400 text-center">
-                <div className="w-12 h-12 md:w-14 md:h-14 bg-blue-600 rounded-xl flex items-center justify-center mx-auto mb-4 shadow-lg">
-                  <card.icon className="w-6 h-6 md:w-7 md:h-7 text-white" />
-                </div>
-                <h3 className="text-lg md:text-xl font-semibold text-gray-900 mb-3">
-                  {card.title}
-                </h3>
-                <p className="text-gray-600 text-sm md:text-base leading-relaxed">
-                  {card.text}
-                </p>
-              </Card>
-            </motion.div>
-          ))}
-        </div>
-
-      </div>
-    </section>
-
-      {/* Core Values */}
-    <section className="relative py-20 md:py-28 bg-gradient-to-br from-slate-50 via-blue-50 to-indigo-50 overflow-hidden">
-      {/* Animated Background Elements */}
-      <div className="absolute inset-0 overflow-hidden pointer-events-none">
-        <div className="absolute top-0 -left-4 w-96 h-96 bg-blue-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse"></div>
-        <div className="absolute top-0 -right-4 w-96 h-96 bg-purple-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '2s' }}></div>
-        <div className="absolute -bottom-8 left-1/2 w-96 h-96 bg-pink-400 rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-pulse" style={{ animationDelay: '4s' }}></div>
-      </div>
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        {/* Heading */}
-        <div className="text-center mb-16 md:mb-24">
-          <div className="inline-block mb-4">
-            <span className="inline-flex items-center gap-2 px-4 py-2 text-sm font-semibold text-blue-600 bg-blue-100 rounded-full">
-              <div className="w-2 h-2 bg-blue-600 rounded-full animate-pulse"></div>
-              What Drives Us
-            </span>
-          </div>
-          <h2 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-6">
-            Our Core <span className="bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 bg-clip-text text-transparent">Values</span>
-          </h2>
-          <p className="text-lg md:text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
-            The principles that drive our success and client satisfaction
-          </p>
-        </div>
-
-        {/* Values Grid - Responsive */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6 md:gap-8 mb-12">
-          {values.map((value, i) => {
-            const Icon = value.icon;
-            const isActive = activeValue === i;
-            
-            return (
-              <div
-                key={i}
-                className="flex flex-col items-center group cursor-pointer"
-                onClick={() => setActiveValue(i)}
-              >
-                {/* Icon Container with 3D effect */}
-                <div className="relative mb-4 transition-all duration-500 ease-out">
-                  {/* Background glow effect */}
-                  <div className={`absolute inset-0 bg-gradient-to-tr ${value.color} rounded-3xl blur-xl opacity-0 group-hover:opacity-50 transition-opacity duration-500 ${isActive ? 'opacity-40' : ''}`}></div>
-                  
-                  {/* Main icon container */}
-                  <div className={`relative w-20 h-20 md:w-24 md:h-24 transition-all duration-500 ${isActive ? 'scale-110' : 'scale-100 group-hover:scale-105'}`}>
-                    {/* Rotating background layer */}
-                    <div 
-                      className={`absolute inset-0 bg-gradient-to-tr ${value.color} rounded-3xl transition-all duration-700 ${isActive ? 'rotate-12' : 'rotate-3 group-hover:rotate-6'}`}
-                      style={{
-                        animation: isActive ? 'float 3s ease-in-out infinite' : 'none'
-                      }}
-                    ></div>
-                    
-                    {/* Icon container */}
-                    <div className={`relative w-full h-full bg-gradient-to-tr ${value.color} rounded-3xl flex items-center justify-center shadow-lg transition-all duration-500 ${isActive ? `shadow-2xl ${value.bgGlow}` : 'group-hover:shadow-xl'}`}>
-                      <Icon className="w-10 h-10 md:w-12 md:h-12 text-white" strokeWidth={2} />
-                    </div>
-                  </div>
-                </div>
-
-                {/* Name */}
-                <h3 className={`text-sm md:text-base font-bold text-center transition-all duration-300 ${isActive ? 'text-gray-900 scale-105' : 'text-gray-700 group-hover:text-gray-900'}`}>
-                  {value.name}
-                </h3>
-              </div>
-            );
-          })}
-        </div>
-
-        {/* Active Value Description Card */}
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white/80 backdrop-blur-xl rounded-3xl shadow-2xl p-8 md:p-12 border border-white/20 transition-all duration-500">
-            <div className="flex items-start gap-6">
-              {/* Large Icon */}
-              <div className={`flex-shrink-0 w-16 h-16 md:w-20 md:h-20 bg-gradient-to-tr ${values[activeValue].color} rounded-2xl flex items-center justify-center shadow-xl`}>
-                {React.createElement(values[activeValue].icon, { className: "w-8 h-8 md:w-10 md:h-10 text-white", strokeWidth: 2 })}
-              </div>
-
-              {/* Content */}
-              <div className="flex-1">
-                <h3 className="text-2xl md:text-3xl font-bold text-gray-900 mb-3">
-                  {values[activeValue].name}
-                </h3>
-                <p className="text-base md:text-lg text-gray-600 leading-relaxed">
-                  {values[activeValue].description}
-                </p>
-              </div>
+          <div className="bg-white/90 backdrop-blur-md border border-slate-200 rounded-2xl p-6 shadow-sm hover:shadow-xl transition-all duration-500 h-full flex flex-col items-center text-center relative">
+            {/* Step Number */}
+            <div className="absolute -top-5 left-1/2 transform -translate-x-1/2 w-10 h-10 flex items-center justify-center rounded-full bg-gradient-to-br from-blue-600 to-indigo-600 text-white text-sm font-bold shadow-md">
+              {step.number}
             </div>
 
-            {/* Progress Indicators */}
-            <div className="flex justify-center gap-2 mt-8">
-              {values.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => setActiveValue(i)}
-                  className={`transition-all duration-300 rounded-full ${activeValue === i ? 'w-8 h-2 bg-gradient-to-r from-blue-600 to-purple-600' : 'w-2 h-2 bg-gray-300 hover:bg-gray-400'}`}
-                  aria-label={`View ${values[i].name}`}
-                ></button>
-              ))}
+            {/* Icon */}
+            <div className="w-14 h-14 bg-blue-100 rounded-xl flex items-center justify-center mb-4 mt-4 group-hover:scale-110 transition-transform duration-300">
+              <step.icon className="w-7 h-7 text-blue-600" />
             </div>
-          </div>
-        </div>
 
-        {/* Bottom CTA */}
-        <div className="mt-16 text-center">
-          <button className="group relative inline-flex items-center gap-3 px-8 py-4 bg-gradient-to-r from-blue-600 via-purple-600 to-pink-600 text-white font-semibold rounded-full shadow-xl hover:shadow-2xl transition-all duration-500 hover:scale-105 overflow-hidden">
-            <div className="absolute inset-0 bg-gradient-to-r from-pink-600 via-purple-600 to-blue-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
-            <span className="relative">Discover More About Us</span>
-            <svg className="relative w-5 h-5 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
-            </svg>
-          </button>
-        </div>
-      </div>
+            {/* Title */}
+            <h3 className="text-lg font-semibold text-gray-900 mb-2">
+              {step.title}
+            </h3>
 
-      <style jsx>{`
-        @keyframes float {
-          0%, 100% {
-            transform: translateY(0px) rotate(12deg);
-          }
-          50% {
-            transform: translateY(-10px) rotate(12deg);
-          }
-        }
-      `}</style>
-    </section>
-
-      {/* Work Process Section */}
-      <section className="py-20 md:py-32 bg-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Our Work Process
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              A proven methodology for delivering exceptional MEP solutions from start to finish
+            {/* Description */}
+            <p className="text-sm text-gray-600 leading-relaxed">
+              {step.description}
             </p>
-          </motion.div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {processSteps.map((step, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-                className="relative"
-              >
-                <Card className="p-8 text-center hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-400 bg-white h-full">
-                  <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 text-white rounded-2xl flex items-center justify-center text-2xl font-bold mx-auto mb-6 shadow-xl">
-                    {step.number}
-                  </div>
-                  <div className="w-16 h-16 bg-blue-100 rounded-xl flex items-center justify-center mx-auto mb-4">
-                    <step.icon className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <h3 className="text-xl font-bold text-gray-900 mb-3">
-                    {step.title}
-                  </h3>
-                  <p className="text-gray-600 leading-relaxed">{step.description}</p>
-                </Card>
-              </motion.div>
-            ))}
           </div>
-        </div>
-      </section>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
+
 
       {/* Why Choose Us Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-blue-600 to-blue-700 text-white relative overflow-hidden">
-        <div className="absolute inset-0 opacity-10">
-          <div className="absolute top-0 left-0 w-full h-full" style={{
-            backgroundImage: 'radial-gradient(circle at 2px 2px, white 1px, transparent 0)',
-            backgroundSize: '40px 40px'
-          }}></div>
-        </div>
+      <section className="py-16 md:py-24 bg-gradient-to-br from-blue-700 via-blue-600 to-blue-800 text-white relative overflow-hidden">
+  {/* Patterned Overlay */}
+  <div className="absolute inset-0 opacity-10">
+    <div
+      className="absolute inset-0"
+      style={{
+        backgroundImage:
+          'radial-gradient(circle at 1px 1px, rgba(255,255,255,0.6) 1px, transparent 0)',
+        backgroundSize: '32px 32px',
+      }}
+    ></div>
+  </div>
 
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold mb-6">
-              Why Choose BCN MEP Solutions?
-            </h2>
-            <p className="text-xl text-blue-100 max-w-3xl mx-auto">
-              We reflect the values we hold - Knowledge, Leadership, Aptitude, and Honesty
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    {/* Heading */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-12 md:mb-16"
+    >
+      <h2 className="text-3xl md:text-5xl font-bold mb-4 leading-tight">
+        Why Choose <span className="text-blue-200">BCN MEP Solutions?</span>
+      </h2>
+      <p className="text-base md:text-lg text-blue-100 max-w-2xl mx-auto">
+        We reflect the values we hold — <span className="font-semibold">Knowledge, Leadership, Aptitude, and Honesty.</span>
+      </p>
+    </motion.div>
+
+    {/* Feature Cards */}
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+      {[
+        {
+          title: 'On-Time Delivery',
+          icon: Clock,
+          description:
+            'Ensuring timely and budget-friendly project completion is our cornerstone commitment.',
+        },
+        {
+          title: 'Strong Partnerships',
+          icon: HeartHandshake,
+          description:
+            'Collaborative processes with effective communication from start to finish.',
+        },
+        {
+          title: 'Customer Service',
+          icon: ThumbsUp,
+          description:
+            'We eagerly attend to inquiries with efficiency and care, delivering outstanding results.',
+        },
+        {
+          title: 'Local Expertise',
+          icon: MapPin,
+          description:
+            'Based in Gurgaon with deep knowledge of regional requirements and standards.',
+        },
+        {
+          title: 'Proven Track Record',
+          icon: Star,
+          description:
+            'Successfully completed 20+ major industrial projects for leading organizations.',
+        },
+        {
+          title: 'Innovation',
+          icon: Lightbulb,
+          description:
+            'Cutting-edge solutions using the latest technology and sustainable practices.',
+        },
+      ].map((item, index) => (
+        <motion.div
+          key={index}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: index * 0.1 }}
+          whileHover={{ y: -6 }}
+          className="h-full"
+        >
+          <Card className="p-6 md:p-8 bg-white/10 backdrop-blur-md border border-white/20 rounded-2xl hover:bg-white/20 hover:border-white/40 transition-all duration-500 hover:shadow-2xl h-full flex flex-col items-center text-center">
+            <div className="w-14 h-14 md:w-16 md:h-16 bg-white rounded-2xl flex items-center justify-center mb-5 shadow-lg transition-transform duration-500 group-hover:rotate-6">
+              <item.icon className="w-7 h-7 md:w-8 md:h-8 text-blue-600" />
+            </div>
+            <h3 className="text-lg md:text-xl font-semibold mb-2">{item.title}</h3>
+            <p className="text-sm md:text-base text-blue-100 leading-relaxed">
+              {item.description}
             </p>
-          </motion.div>
+          </Card>
+        </motion.div>
+      ))}
+    </div>
+  </div>
+</section>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            {[
-              { 
-                title: 'On-Time Delivery', 
-                icon: Clock, 
-                description: 'Ensuring timely and budget-friendly project completion is our cornerstone commitment.' 
-              },
-              { 
-                title: 'Strong Partnerships', 
-                icon: HeartHandshake, 
-                description: 'Collaborative process with effective communication from start to finish.' 
-              },
-              { 
-                title: 'Customer Service', 
-                icon: ThumbsUp, 
-                description: 'We eagerly attend to inquiries with efficiency and care, delivering outstanding results.' 
-              },
-              { 
-                title: 'Local Expertise', 
-                icon: MapPin, 
-                description: 'Based in Gurgaon with deep knowledge of regional requirements.' 
-              },
-              { 
-                title: 'Proven Track Record', 
-                icon: Star, 
-                description: 'Successfully completed 20+ major industrial projects for leading companies.' 
-              },
-              { 
-                title: 'Innovation', 
-                icon: Lightbulb, 
-                description: 'Cutting-edge solutions using latest technology and industry best practices.' 
-              },
-            ].map((item, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, y: 20 }}
-                whileInView={{ opacity: 1, y: 0 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.6, delay: index * 0.1 }}
-                whileHover={{ y: -8 }}
-              >
-                <Card className="p-8 h-full bg-white/10 backdrop-blur-sm border-2 border-white/20 hover:bg-white/20 hover:border-white/40 transition-all duration-300 hover:shadow-2xl">
-                  <div className="w-16 h-16 bg-white rounded-xl flex items-center justify-center mb-6 shadow-lg">
-                    <item.icon className="w-8 h-8 text-blue-600" />
-                  </div>
-                  <h3 className="text-2xl font-bold mb-4">
-                    {item.title}
-                  </h3>
-                  <p className="text-blue-100 leading-relaxed text-lg">{item.description}</p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-        </div>
-      </section>
 
       {/* Services Expertise */}
       <section className="py-20 md:py-32 bg-gray-50">
@@ -2063,105 +2058,16 @@ export default function AboutPage() {
               </motion.div>
             </div>
 
-                        <motion.button
-                          whileHover={{ scale: 1.05 }}
-                          whileTap={{ scale: 0.95 }}
-                          className="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-3 mx-auto"
-                        >
-                          Get In Touch <ArrowRight className="w-6 h-6" />
-                        </motion.button>
-                      </motion.div>
-                    </div>
-                  </section>
-                </div>
-              );
-            }
-
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6, delay: 0.1 }}
-  whileHover={{ y: -10 }}
->
-  <Card className="p-10 h-full hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-400">
-    <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
-      <Wrench className="w-10 h-10 text-white" />
+            <motion.button
+              whileHover={{ scale: 1.05 }}
+              whileTap={{ scale: 0.95 }}
+              className="bg-white text-blue-600 px-10 py-5 rounded-xl font-bold text-xl shadow-2xl hover:shadow-3xl transition-all duration-300 flex items-center gap-3 mx-auto"
+            >
+              Get In Touch <ArrowRight className="w-6 h-6" />
+            </motion.button>
+          </motion.div>
+        </div>
+      </section>
     </div>
-    <h3 className="text-2xl font-bold text-gray-900 mb-6">
-      Mechanical Systems
-    </h3>
-    <ul className="space-y-4 text-gray-600">
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">HVAC Systems</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">Industrial Pipelines</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">Water Treatment Plants</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">Fire Fighting Systems</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">Compressed Air Systems</span>
-      </li>
-    </ul>
-  </Card>
-</motion.div>
-
-{/* Automation Systems Card */}
-<motion.div
-  initial={{ opacity: 0, y: 20 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.6, delay: 0.2 }}
-  whileHover={{ y: -10 }}
->
-  <Card className="p-10 h-full hover:shadow-2xl transition-all duration-300 border-2 hover:border-blue-400">
-    <div className="w-20 h-20 bg-gradient-to-br from-blue-600 to-blue-700 rounded-2xl flex items-center justify-center mb-6 shadow-xl">
-      <ArrowRight className="w-10 h-10 text-white rotate-90" />
-    </div>
-    <h3 className="text-2xl font-bold text-gray-900 mb-6">
-      Automation & Control Systems
-    </h3>
-    <ul className="space-y-4 text-gray-600">
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">PLC & SCADA Integration</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">Building Management Systems (BMS)</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">Energy Monitoring Systems</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">IoT-Based Smart Controls</span>
-      </li>
-      <li className="flex items-start gap-3">
-        <CheckCircle2 className="w-5 h-5 text-blue-600 mt-1 flex-shrink-0" />
-        <span className="text-lg">Access Control & Integration</span>
-      </li>
-    </ul>
-  </Card>
-</motion.div>
-    
-          };
-
-      
-      {/* Team Section */}
-
-
-               
-           
-    
+  );
+}
