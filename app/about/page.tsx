@@ -959,7 +959,7 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { AnimatePresence, motion } from 'framer-motion';
-import { Target, Eye, Shield, Award, Clock, TrendingUp, CheckCircle2, Users, Zap, Wrench, HeartHandshake, Lightbulb, ThumbsUp, Rocket, Star, Globe, Phone, Mail, MapPin, ArrowRight, Building2, HardHat, FileCheck, Settings, Briefcase, BadgeCheck, Heart, Sparkles } from 'lucide-react';
+import { Target, Eye, Shield, Award, Clock, TrendingUp, CheckCircle2, Users, Zap, Wrench, HeartHandshake, Lightbulb, ThumbsUp, Rocket, Star, Globe, Phone, Mail, MapPin, ArrowRight, Building2, HardHat, FileCheck, Settings, Briefcase, BadgeCheck, Heart, Sparkles, ArrowUpRight } from 'lucide-react';
 import { Card } from '@/components/ui/card';
 import React from 'react';
 import { Span } from 'next/dist/trace';
@@ -1084,6 +1084,12 @@ const Card = ({ className, children }: CardProps) => (
     setExpandedIndex(prev => (prev === index ? null : index));
   };
 
+  const stats = [
+    { value: '50K+', label: 'Satisfied Clients', description: 'We collaborate around the globe' },
+    { value: '13+', label: 'Years Experience', description: 'Delivering excellence' },
+    { value: '20', label: 'Professional Designers', description: 'Expert team members' },
+    { value: '10K', label: 'Digital Product', description: 'Projects completed' }
+  ];
 
   const values = [
     {
@@ -1129,6 +1135,7 @@ const Card = ({ className, children }: CardProps) => (
       bgGlow: 'group-hover:shadow-red-500/50'
     }
   ];
+
   
 
   return (
@@ -1679,10 +1686,10 @@ const Card = ({ className, children }: CardProps) => (
 
       {/* Team Section */}
 
-<section className="py-24 bg-gradient-to-b from-gray-50 to-white">
+  <section className="py-12 md:py-24 bg-gradient-to-b from-gray-50 to-white">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         {/* Header Section */}
-  <motion.div
+        <motion.div
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true }}
@@ -1700,9 +1707,8 @@ const Card = ({ className, children }: CardProps) => (
   </p>
 </motion.div>
 
-
-        {/* Team Grid */}
-        <div className="flex gap-4 h-[500px]">
+        {/* Team Grid - Desktop */}
+        <div className="hidden md:flex gap-4 h-[500px] mb-8">
           {teamMembers.map((member, index) => {
             const isExpanded = expandedIndex === index;
             const isOtherExpanded = expandedIndex !== null && expandedIndex !== index;
@@ -1719,14 +1725,12 @@ const Card = ({ className, children }: CardProps) => (
                 onClick={() => handleCardClick(index)}
                 className="relative cursor-pointer overflow-hidden rounded-2xl group"
                 style={{
-                  backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url(${member.image})`,
+                  backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url(${member.image})`,
                   backgroundSize: 'cover',
                   backgroundPosition: 'center'
                 }}
               >
-                {/* Overlay Content */}
                 <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
-                  {/* Top Section - Always Visible */}
                   <div className="flex items-start justify-between">
                     <motion.div
                       animate={{
@@ -1741,7 +1745,6 @@ const Card = ({ className, children }: CardProps) => (
                     </motion.div>
                   </div>
 
-                  {/* Bottom Section */}
                   <div>
                     <AnimatePresence mode="wait">
                       {isExpanded ? (
@@ -1751,18 +1754,18 @@ const Card = ({ className, children }: CardProps) => (
                           exit={{ opacity: 0, y: 20 }}
                           transition={{ duration: 0.4 }}
                         >
-                          <h3 className="text-3xl font-bold mb-2">{member.name}</h3>
-                          <p className="text-xl text-blue-300 mb-4">{member.role}</p>
-                          <p className="text-sm leading-relaxed opacity-90 mb-6">
+                          <h3 className="text-2xl font-bold mb-2">{member.name}</h3>
+                          <p className="text-lg text-blue-300 mb-3">{member.role}</p>
+                          <p className="text-sm leading-relaxed opacity-90 mb-4">
                             {member.description}
                           </p>
                           <div className="flex items-center justify-between">
-                            <span className="text-5xl font-bold">100</span>
-                            <button className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors">
+                            <span className="text-4xl font-bold">100</span>
+                            <button className="px-5 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors text-sm">
                               Go
                             </button>
                           </div>
-                          <span className="text-xs opacity-75 mt-2 block">Topics</span>
+                          <span className="text-xs opacity-75 mt-1 block">Topics</span>
                         </motion.div>
                       ) : (
                         <motion.div
@@ -1773,13 +1776,13 @@ const Card = ({ className, children }: CardProps) => (
                         >
                           {!isOtherExpanded && (
                             <>
-                              <div className="text-sm opacity-90 mb-2">{member.category}</div>
+                              <div className="text-xs opacity-90 mb-2">{member.category}</div>
                               <div className="flex items-end justify-between">
                                 <div>
-                                  <h3 className="text-2xl font-bold mb-1">{member.role}</h3>
+                                  <h3 className="text-lg font-bold mb-1">{member.role}</h3>
                                 </div>
                                 <div className="text-right">
-                                  <div className="text-4xl font-bold">100</div>
+                                  <div className="text-3xl font-bold">100</div>
                                   <div className="text-xs opacity-75">Topics</div>
                                 </div>
                               </div>
@@ -1790,7 +1793,6 @@ const Card = ({ className, children }: CardProps) => (
                     </AnimatePresence>
                   </div>
 
-                  {/* Play Button Overlay */}
                   <motion.div
                     className="absolute inset-0 flex items-center justify-center"
                     animate={{
@@ -1798,7 +1800,7 @@ const Card = ({ className, children }: CardProps) => (
                     }}
                     transition={{ duration: 0.3 }}
                   >
-                    <div className="w-16 h-16 bg-white bg-opacity-80 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all">
+                    <div className="w-14 h-14 bg-white bg-opacity-80 rounded-full flex items-center justify-center hover:bg-opacity-100 transition-all">
                       <div className="w-0 h-0 border-t-8 border-t-transparent border-l-12 border-l-gray-800 border-b-8 border-b-transparent ml-1"></div>
                     </div>
                   </motion.div>
@@ -1808,93 +1810,169 @@ const Card = ({ className, children }: CardProps) => (
           })}
         </div>
 
+        {/* Team Grid - Mobile */}
+        <div className="md:hidden grid grid-cols-2 gap-3 mb-8">
+          {teamMembers.map((member, index) => {
+            const isExpanded = expandedIndex === index;
+            
+            return (
+              <motion.div
+                key={index}
+                layout
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                onClick={() => handleCardClick(index)}
+                className={`relative cursor-pointer overflow-hidden rounded-xl transition-all duration-500 ${
+                  isExpanded ? 'col-span-2 h-96' : 'col-span-1 h-64'
+                }`}
+                style={{
+                  backgroundImage: `linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7)), url(${member.image})`,
+                  backgroundSize: 'cover',
+                  backgroundPosition: 'center'
+                }}
+              >
+                <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
+                  <AnimatePresence mode="wait">
+                    {isExpanded ? (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="flex flex-col h-full justify-between"
+                      >
+                        <div>
+                          <div className="text-xs font-semibold mb-2 text-blue-300">{member.category}</div>
+                          <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+                          <p className="text-sm text-blue-200 mb-3">{member.role}</p>
+                          <p className="text-xs leading-relaxed opacity-90 mb-4">
+                            {member.description}
+                          </p>
+                        </div>
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <div className="text-3xl font-bold">100</div>
+                            <div className="text-xs opacity-75">Topics</div>
+                          </div>
+                          <button className="px-6 py-2 bg-green-500 text-white font-semibold rounded-lg hover:bg-green-600 transition-colors text-sm">
+                            Go
+                          </button>
+                        </div>
+                      </motion.div>
+                    ) : (
+                      <motion.div
+                        initial={{ opacity: 0 }}
+                        animate={{ opacity: 1 }}
+                        exit={{ opacity: 0 }}
+                        className="flex flex-col h-full justify-between"
+                      >
+                        <div className="text-xs font-semibold">{member.category}</div>
+                        <div>
+                          <h3 className="text-base font-bold mb-1">{member.role}</h3>
+                          <div className="flex items-center justify-between mt-2">
+                            <span className="text-2xl font-bold">100</span>
+                            <span className="text-xs opacity-75">Topics</span>
+                          </div>
+                        </div>
+                        
+                        <div className="absolute inset-0 flex items-center justify-center">
+                          <div className="w-12 h-12 bg-white bg-opacity-80 rounded-full flex items-center justify-center">
+                            <div className="w-0 h-0 border-t-6 border-t-transparent border-l-8 border-l-gray-800 border-b-6 border-b-transparent ml-1"></div>
+                          </div>
+                        </div>
+                      </motion.div>
+                    )}
+                  </AnimatePresence>
+                </div>
+              </motion.div>
+            );
+          })}
+        </div>
+
         {/* Enhanced CTA Section */}
-       <motion.div
+    <motion.section
   initial={{ opacity: 0, y: 30 }}
   whileInView={{ opacity: 1, y: 0 }}
   viewport={{ once: true }}
   transition={{ duration: 0.7, delay: 0.2 }}
-  className="mt-20"
+  className="py-10 md:py-14 bg-transparent text-gray-900 relative"
 >
-  <div className="relative overflow-hidden">
-    {/* Soft Background Blobs */}
-    <div className="absolute inset-0 opacity-10">
-      <div className="absolute top-0 left-0 w-40 h-40 bg-blue-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob"></div>
-      <div className="absolute bottom-0 right-0 w-40 h-40 bg-purple-500 rounded-full mix-blend-multiply filter blur-3xl animate-blob animation-delay-2000"></div>
+  {/* Content Container */}
+  <div className="relative z-10 max-w-5xl mx-auto px-6">
+    <div className="bg-white/30 backdrop-blur-md rounded-2xl md:rounded-3xl shadow-[0_10px_40px_rgba(0,0,0,0.15)] py-10 px-6 md:px-12 text-center">
+      
+      <motion.div
+        initial={{ scale: 0 }}
+        whileInView={{ scale: 1 }}
+        transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
+        className="inline-flex items-center gap-2 px-3 py-1.5 md:px-4 md:py-2 bg-black/10 rounded-full mb-3"
+      >
+        <TrendingUp className="w-3 h-3 md:w-4 md:h-4 text-blue-600" />
+        <span className="text-xs md:text-sm font-semibold text-gray-800">
+          We’re Hiring!
+        </span>
+      </motion.div>
+
+      <motion.h2
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.4 }}
+        className="text-2xl md:text-3xl font-bold mb-3 leading-tight text-gray-900"
+      >
+        Ready to Build the{" "}
+        <span className="bg-gradient-to-r from-blue-600 via-purple-500 to-pink-500 bg-clip-text text-transparent">
+          Future of MEP?
+        </span>
+      </motion.h2>
+
+      <motion.p
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.5 }}
+        className="text-sm md:text-base text-gray-700 max-w-2xl mx-auto mb-6 leading-relaxed"
+      >
+        Join a team where innovation meets excellence. We’re looking for passionate engineers and visionaries ready to transform the MEP industry.
+      </motion.p>
+
+      {/* CTA Buttons */}
+      <motion.div
+        initial={{ opacity: 0, y: 15 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: 0.6 }}
+        className="flex flex-col sm:flex-row items-center justify-center gap-3 md:gap-4"
+      >
+        {/* Primary Button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="group px-5 py-2.5 md:px-6 md:py-3 bg-blue-600 text-white font-semibold rounded-lg md:rounded-xl shadow-md hover:bg-blue-700 transition-all flex items-center gap-2 w-full sm:w-auto justify-center text-sm md:text-base"
+        >
+          Explore Opportunities
+          <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
+        </motion.button>
+
+        {/* Secondary Button */}
+        <motion.button
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.95 }}
+          className="px-5 py-2.5 md:px-6 md:py-3 bg-transparent border-2 border-blue-600 text-blue-600 font-semibold rounded-lg md:rounded-xl hover:bg-blue-600 hover:text-white transition-all w-full sm:w-auto text-sm md:text-base"
+        >
+          Learn More
+        </motion.button>
+      </motion.div>
+
+      <motion.p
+        initial={{ opacity: 0 }}
+        whileInView={{ opacity: 1 }}
+        transition={{ delay: 0.7 }}
+        className="mt-5 text-xs md:text-sm text-gray-700 flex items-center justify-center gap-2"
+      >
+        <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse"></span>
+        Currently hiring for 5+ positions
+      </motion.p>
     </div>
-
-    <Card className="relative px-6 py-10 sm:px-8 sm:py-14 max-w-6xl mx-auto bg-gradient-to-br from-blue-600 via-blue-700 to-purple-700 text-white rounded-3xl shadow-xl">
-      <div className="relative z-10 text-center">
-        {/* Small Badge */}
-        <motion.div
-          initial={{ scale: 0 }}
-          whileInView={{ scale: 1 }}
-          transition={{ type: "spring", stiffness: 200, delay: 0.3 }}
-          className="inline-flex items-center gap-2 px-3 py-1.5 bg-white/20 backdrop-blur-sm rounded-full mb-4"
-        >
-          <TrendingUp className="w-4 h-4" />
-          <span className="text-xs font-semibold">We’re Hiring!</span>
-        </motion.div>
-
-        {/* Heading */}
-        <motion.h3
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.4 }}
-          className="text-2xl sm:text-3xl md:text-4xl font-extrabold mb-3 leading-snug"
-        >
-          Build the
-          <span className="block bg-gradient-to-r from-yellow-300 via-pink-300 to-purple-300 bg-clip-text text-transparent">
-            Future of MEP with Us
-          </span>
-        </motion.h3>
-
-        {/* Description */}
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.5 }}
-          className="text-sm sm:text-base md:text-lg text-blue-50 mb-8 max-w-3xl mx-auto leading-relaxed"
-        >
-          Join a passionate team shaping modern MEP innovations with precision, collaboration, and purpose.
-        </motion.p>
-
-        {/* Stats */}
-   
-
-        {/* CTA Buttons */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.7 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-3"
-        >
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 bg-white text-blue-700 font-semibold rounded-lg shadow-md hover:shadow-lg transition-all duration-300"
-          >
-            Explore Opportunities
-          </motion.button>
-
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
-            className="px-6 py-3 border border-white text-white font-semibold rounded-lg hover:bg-white hover:text-blue-700 transition-all duration-300"
-          >
-            Learn More
-          </motion.button>
-        </motion.div>
-
-        {/* Footer note */}
-        <p className="mt-5 text-xs text-blue-100 flex items-center justify-center gap-2">
-          <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-          Currently hiring for 5+ positions
-        </p>
-      </div>
-    </Card>
   </div>
-</motion.div>
+</motion.section>
+
 
       </div>
 
@@ -1924,68 +2002,108 @@ const Card = ({ className, children }: CardProps) => (
         }
       `}</style>
     </section>
-
       {/* Clients Section */}
-      <section className="py-20 md:py-32 bg-gradient-to-br from-gray-50 to-blue-50">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="text-center mb-16"
-          >
-            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
-              Trusted by <span className="text-blue-600">Top Companies</span>
-            </h2>
-            <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-              From industry leaders like Yokohama and Tata Steel to innovators across sectors, we empower companies with reliable MEP solutions and seamless project execution.
-            </p>
-          </motion.div>
+     {/* Clients Section */}
+<section className="py-16 md:py-24 lg:py-32 bg-white overflow-hidden">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    {/* Header */}
+    <motion.div
+      initial={{ opacity: 0, y: 20 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="text-center mb-8 md:mb-12"
+    >
+      <div className="inline-flex items-center gap-2 bg-blue-100 text-blue-600 px-4 py-2 rounded-full text-sm font-medium mb-6">
+        <span className="flex gap-1">
+          <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+          <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+          <span className="w-2 h-2 bg-blue-600 rounded-full"></span>
+        </span>
+        100+ Satisfied Customers
+      </div>
 
-          <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6">
-            {[
-              { name: 'Tata Steel', location: 'Ludhiana' },
-              { name: 'Uno Minda', location: 'Neemrana' },
-              { name: 'JBM Associates', location: 'Gujarat' },
-              { name: 'Yokohama India', location: 'Pan India' },
-              { name: 'Rosenberger', location: 'Manesar' },
-              { name: 'Avitech Nutrition', location: 'Jhajjar' },
-              { name: 'Anand Mando', location: 'Bhiwadi' },
-              { name: 'Sona Comstar', location: 'Gurgaon' },
-              { name: 'Webtech Corp', location: 'Rohtak' },
-              { name: 'Bhagirath Heavy', location: 'Jhajjar' },
-            ].map((client, index) => (
-              <motion.div
-                key={index}
-                initial={{ opacity: 0, scale: 0.9 }}
-                whileInView={{ opacity: 1, scale: 1 }}
-                viewport={{ once: true }}
-                transition={{ duration: 0.5, delay: index * 0.05 }}
-                whileHover={{ scale: 1.05, y: -5 }}
-              >
-                <Card className="p-8 text-center hover:shadow-2xl transition-all duration-300 h-full flex flex-col items-center justify-center border-2 hover:border-blue-400 bg-white">
-                  <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mb-4 shadow-lg">
-                    <Users className="w-8 h-8 text-blue-600" />
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 mb-2">
+        Life Feels Empty Without
+      </h2>
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold text-blue-600 mb-6">
+        Beautiful Design
+      </h2>
+      <p className="text-base sm:text-lg text-gray-500 max-w-2xl mx-auto">
+        We create and design applications, websites, or other digital products with professionalism
+      </p>
+    </motion.div>
+
+    {/* Single Transparent Image (connected to stats) */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: 0.2 }}
+      className="flex justify-center items-end -mb-16 md:-mb-24 lg:-mb-28"
+    >
+      <img
+        src="https://i.postimg.cc/28r134mX/Dark-Green-and-Cream-Simple-Dark-Real-Estate-Bio-Link-Website-1.png"
+        alt="Team"
+        className="w-auto max-w-4xl  object-contain "
+        style={{
+          filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.2))'
+        }}
+      />   {/* Need to fix  */}
+    </motion.div>
+
+    {/* Statistics Cards */}
+    <motion.div
+      initial={{ opacity: 0, y: 30 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.7, delay: 0.6 }}
+      className="relative max-w-6xl mx-auto"
+    >
+      <div className="bg-gray-900 rounded-3xl md:rounded-[3rem] p-6 sm:p-8 md:p-10 lg:p-12 shadow-2xl">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6">
+          {stats.map((stat, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.7 + index * 0.1 }}
+              whileHover={{ scale: 1.05, y: -5 }}
+              className={`${
+                index === 0 ? 'bg-blue-600' : 'bg-white'
+              } rounded-2xl md:rounded-3xl p-6 md:p-8 transition-all duration-300 hover:shadow-xl relative overflow-hidden`}
+            >
+              <div className="flex items-start justify-between mb-3">
+                <h3 className={`text-4xl sm:text-5xl md:text-6xl font-bold ${
+                  index === 0 ? 'text-white' : 'text-gray-900'
+                }`}>
+                  {stat.value}
+                </h3>
+                {index === 0 && (
+                  <div className="bg-white bg-opacity-20 p-2 rounded-full">
+                    <ArrowUpRight className="w-5 h-5 md:w-6 md:h-6 text-white" />
                   </div>
-                  <p className="font-bold text-gray-900 text-base mb-2">{client.name}</p>
-                  <p className="text-sm text-gray-500">{client.location}</p>
-                </Card>
-              </motion.div>
-            ))}
-          </div>
-
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6, delay: 0.5 }}
-            className="text-center mt-12"
-          >
-            <p className="text-gray-600 text-lg font-medium italic">...and many more leading companies across India</p>
-          </motion.div>
+                )}
+              </div>
+              <p className={`font-bold text-sm md:text-base mb-2 ${
+                index === 0 ? 'text-white' : 'text-gray-900'
+              }`}>
+                {stat.label}
+              </p>
+              <p className={`text-xs md:text-sm leading-relaxed ${
+                index === 0 ? 'text-blue-100' : 'text-gray-500'
+              }`}>
+                {stat.description}
+              </p>
+            </motion.div>
+          ))}
         </div>
-      </section>
+      </div>
+    </motion.div>
+  </div>
+</section>
+
 
       {/* Facilities & Resources */}
       <section className="py-20 md:py-32 bg-white">
