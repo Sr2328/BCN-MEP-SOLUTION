@@ -251,147 +251,136 @@ export function FloatingCTA() {
     <>
       {/* Chat Window */}
       {showChat && (
-  <div
-    className="fixed bottom-0 right-0 left-0 md:bottom-6 md:right-6 md:left-auto z-50 
-    w-full md:w-[420px] h-[80vh] md:h-[600px] 
-    bg-white rounded-t-2xl md:rounded-2xl shadow-2xl 
-    flex flex-col overflow-hidden border border-gray-100
-    transition-all duration-300"
-  >
-    {/* Chat Header */}
-    <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white p-4 flex justify-between items-center">
-      <div className="flex items-center gap-3">
-        <div className="relative">
-          <div className="w-10 h-10 md:w-12 md:h-12 bg-white rounded-full flex items-center justify-center font-bold text-blue-600 text-base md:text-lg">
-            BCN
-          </div>
-          <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white"></div>
-        </div>
-        <div>
-          <h3 className="font-bold text-base md:text-lg">BCN Assist</h3>
-          <p className="text-[11px] md:text-xs text-blue-100 flex items-center gap-1">
-            <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
-            Online • MEP Solutions Expert
-          </p>
-        </div>
-      </div>
-      <button
-        onClick={() => setShowChat(false)}
-        className="hover:bg-blue-600 p-2 rounded-full transition-colors"
-      >
-        <X className="w-5 h-5" />
-      </button>
-    </div>
-
-    {/* Quick Info Bar */}
-    <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-3 md:px-4 py-2 border-b flex items-center justify-between text-[10px] md:text-xs flex-wrap">
-      <div className="flex items-center gap-1 text-gray-700">
-        <Clock className="w-3 h-3" />
-        <span>24/7 Support</span>
-      </div>
-      <div className="flex items-center gap-1 text-gray-700">
-        <MapPin className="w-3 h-3" />
-        <span>Delhi NCR</span>
-      </div>
-      <div className="flex items-center gap-1 text-gray-700">
-        <Zap className="w-3 h-3" />
-        <span>Instant Response</span>
-      </div>
-    </div>
-
-    {/* Messages Area */}
-    <div className="flex-1 overflow-y-auto p-3 md:p-4 space-y-4 bg-gradient-to-b from-gray-50 to-white">
-      {messages.map((msg, idx) => (
-        <div key={idx}>
-          <div className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
-            <div
-              className={`max-w-[85%] md:max-w-[80%] p-3 md:p-4 text-sm md:text-base leading-relaxed ${
-                msg.type === 'user'
-                  ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl rounded-br-md shadow-lg'
-                  : 'bg-white text-gray-800 rounded-2xl rounded-bl-md shadow-md border border-gray-100'
-              }`}
+        <div className="fixed bottom-4 right-4 md:bottom-6 md:right-6 z-50 w-[calc(100vw-2rem)] md:w-[420px] h-[calc(100vh-6rem)] md:h-[600px] bg-white rounded-2xl shadow-2xl flex flex-col overflow-hidden">
+          {/* Chat Header */}
+          <div className="bg-gradient-to-r from-blue-600 via-blue-700 to-indigo-700 text-white p-4 flex justify-between items-center">
+            <div className="flex items-center gap-3">
+              <div className="relative">
+                <div className="w-12 h-12 bg-white rounded-full flex items-center justify-center font-bold text-blue-600 text-lg">
+                  BCN
+                </div>
+                <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-400 rounded-full border-2 border-white"></div>
+              </div>
+              <div>
+                <h3 className="font-bold text-lg">BCN Assist</h3>
+                <p className="text-xs text-blue-100 flex items-center gap-1">
+                  <span className="w-2 h-2 bg-green-400 rounded-full animate-pulse"></span>
+                  Online • MEP Solutions Expert
+                </p>
+              </div>
+            </div>
+            <button 
+              onClick={() => setShowChat(false)} 
+              className="hover:bg-blue-600 p-2 rounded-full transition-colors"
             >
-              {msg.text}
+              <X className="w-5 h-5" />
+            </button>
+          </div>
+
+          {/* Quick Info Bar */}
+          <div className="bg-gradient-to-r from-blue-50 to-indigo-50 px-4 py-2 border-b flex items-center justify-between text-xs">
+            <div className="flex items-center gap-1 text-gray-700">
+              <Clock className="w-3 h-3" />
+              <span>24/7 Support</span>
+            </div>
+            <div className="flex items-center gap-1 text-gray-700">
+              <MapPin className="w-3 h-3" />
+              <span>Delhi NCR</span>
+            </div>
+            <div className="flex items-center gap-1 text-gray-700">
+              <Zap className="w-3 h-3" />
+              <span>Instant Response</span>
             </div>
           </div>
 
-          {/* Quick Reply Buttons */}
-          {msg.options && msg.options.length > 0 && (
-            <div className="flex flex-wrap gap-2 mt-3 ml-0">
-              {msg.options.map((option, i) => (
-                <button
-                  key={i}
-                  onClick={() => handleOptionClick(option)}
-                  className="bg-white hover:bg-blue-50 text-blue-600 border-2 border-blue-200 px-3 py-1.5 md:py-2 rounded-full text-xs md:text-sm font-medium transition-all hover:border-blue-400 hover:shadow-md"
-                >
-                  {option}
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-      ))}
-
-      {/* Typing Indicator */}
-      {isTyping && (
-        <div className="flex justify-start">
-          <div className="bg-white p-3 rounded-2xl rounded-bl-md shadow-md border border-gray-100">
-            <div className="flex space-x-2 items-center">
-              <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
-              <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
-              <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
-              <span className="text-[11px] text-gray-500 ml-2">BCN Assist is typing...</span>
-            </div>
-          </div>
-        </div>
-      )}
-
-      {/* Rating Section */}
-      {showRating && (
-        <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-xl border-2 border-yellow-200">
-          <p className="text-sm font-semibold text-gray-800 mb-3 text-center">Rate your experience:</p>
-          <div className="flex gap-2 justify-center">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <button
-                key={star}
-                onClick={() => handleRating(star)}
-                className="hover:scale-125 transition-transform"
-              >
-                <Star className="w-6 h-6 md:w-8 md:h-8 fill-yellow-400 text-yellow-500 hover:fill-yellow-500" />
-              </button>
+          {/* Messages */}
+          <div className="flex-1 overflow-y-auto p-4 space-y-4 bg-gradient-to-b from-gray-50 to-white">
+            {messages.map((msg, idx) => (
+              <div key={idx}>
+                <div className={`flex ${msg.type === 'user' ? 'justify-end' : 'justify-start'}`}>
+                  <div className={`max-w-[85%] ${
+                    msg.type === 'user' 
+                      ? 'bg-gradient-to-r from-blue-600 to-indigo-600 text-white rounded-2xl rounded-br-md shadow-lg' 
+                      : 'bg-white text-gray-800 rounded-2xl rounded-bl-md shadow-md border border-gray-100'
+                  } p-3 md:p-4`}>
+                    <p className="text-sm md:text-base whitespace-pre-line leading-relaxed">{msg.text}</p>
+                  </div>
+                </div>
+                
+                {/* Quick Reply Options */}
+                {msg.options && msg.options.length > 0 && (
+                  <div className="flex flex-wrap gap-2 mt-3 ml-0">
+                    {msg.options.map((option, i) => (
+                      <button
+                        key={i}
+                        onClick={() => handleOptionClick(option)}
+                        className="bg-white hover:bg-blue-50 text-blue-600 border-2 border-blue-200 px-3 py-2 rounded-full text-xs md:text-sm font-medium transition-all hover:border-blue-400 hover:shadow-md"
+                      >
+                        {option}
+                      </button>
+                    ))}
+                  </div>
+                )}
+              </div>
             ))}
+            
+            {isTyping && (
+              <div className="flex justify-start">
+                <div className="bg-white p-4 rounded-2xl rounded-bl-md shadow-md border border-gray-100">
+                  <div className="flex space-x-2 items-center">
+                    <div className="w-2 h-2 bg-blue-400 rounded-full animate-bounce" style={{ animationDelay: '0ms' }}></div>
+                    <div className="w-2 h-2 bg-blue-500 rounded-full animate-bounce" style={{ animationDelay: '150ms' }}></div>
+                    <div className="w-2 h-2 bg-blue-600 rounded-full animate-bounce" style={{ animationDelay: '300ms' }}></div>
+                    <span className="text-xs text-gray-500 ml-2">BCN Assist is typing...</span>
+                  </div>
+                </div>
+              </div>
+            )}
+
+            {showRating && (
+              <div className="bg-gradient-to-r from-yellow-50 to-orange-50 p-4 rounded-xl border-2 border-yellow-200">
+                <p className="text-sm font-semibold text-gray-800 mb-3">Rate your experience:</p>
+                <div className="flex gap-2 justify-center">
+                  {[1, 2, 3, 4, 5].map(star => (
+                    <button
+                      key={star}
+                      onClick={() => handleRating(star)}
+                      className="hover:scale-125 transition-transform"
+                    >
+                      <Star className="w-8 h-8 fill-yellow-400 text-yellow-500 hover:fill-yellow-500" />
+                    </button>
+                  ))}
+                </div>
+              </div>
+            )}
+            
+            <div ref={messagesEndRef} />
+          </div>
+
+          {/* Input */}
+          <div className="p-3 md:p-4 border-t bg-white">
+            <div className="flex gap-2 items-end">
+              <input
+                type="text"
+                value={input}
+                onChange={(e) => setInput(e.target.value)}
+                onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
+                placeholder="Type your message..."
+                className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-full focus:outline-none focus:border-blue-500 text-sm md:text-base"
+              />
+              <button
+                onClick={() => handleSendMessage()}
+                className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white p-3 rounded-full transition-all hover:scale-105 shadow-lg"
+              >
+                <Send className="w-5 h-5" />
+              </button>
+            </div>
+            <p className="text-xs text-gray-500 mt-2 text-center">
+              Powered by BCN MEP Solutions • Your MEP Partner
+            </p>
           </div>
         </div>
       )}
-
-      <div ref={messagesEndRef} />
-    </div>
-
-    {/* Chat Input */}
-    <div className="p-3 md:p-4 border-t bg-white">
-      <div className="flex gap-2 items-end">
-        <input
-          type="text"
-          value={input}
-          onChange={(e) => setInput(e.target.value)}
-          onKeyPress={(e) => e.key === 'Enter' && handleSendMessage()}
-          placeholder="Type your message..."
-          className="flex-1 px-4 py-3 border-2 border-gray-200 rounded-full focus:outline-none focus:border-blue-500 text-sm md:text-base"
-        />
-        <button
-          onClick={() => handleSendMessage()}
-          className="bg-gradient-to-r from-blue-600 to-indigo-600 hover:from-blue-700 hover:to-indigo-700 text-white p-3 rounded-full transition-all hover:scale-105 shadow-lg"
-        >
-          <Send className="w-5 h-5" />
-        </button>
-      </div>
-      <p className="text-[11px] text-gray-500 mt-2 text-center">
-        Powered by <span className="font-semibold text-blue-600">BCN MEP Solutions</span> • Your MEP Partner
-      </p>
-    </div>
-  </div>
-)}
-
 
       {/* Contact Options Menu */}
       {isOpen && !showChat && (
