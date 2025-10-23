@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect, SetStateAction } from 'react';
-import { Menu, X, Phone, Mail, ChevronDown } from 'lucide-react';
+import { useState, SetStateAction } from 'react';
+import { Menu, X, Phone, Mail } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const navLinks = [
@@ -14,17 +14,7 @@ const navLinks = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
-  const [isScrolled, setIsScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('/');
-
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20);
-    };
-
-    window.addEventListener('scroll', handleScroll);
-    return () => window.removeEventListener('scroll', handleScroll);
-  }, []);
 
   const handleLinkClick = (href: SetStateAction<string>) => {
     setActiveLink(href);
@@ -33,29 +23,24 @@ export default function Navbar() {
 
   return (
     <>
-      <nav
-        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-4"
-
-      >
+      {/* Navbar */}
+      <nav className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-4 transition-all duration-300">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
+            
             {/* Logo Section */}
             <a 
               href="/" 
               className="flex items-center space-x-3 group"
               onClick={() => handleLinkClick('/')}
             >
-              {/* Logo Image Placeholder - Replace with your actual logo */}
-              
               <div className="relative flex items-center">
-  <img
-    src="https://i.postimg.cc/wxsJBKyx/Blue-Black-Simple-Modern-Construction-Company-Logo-1.png"
-    alt="Company Logo"
-    className="block h-12 object-contain transition-transform duration-300 hover:scale-105"
-  />
-</div>
-
-              
+                <img
+                  src="https://i.postimg.cc/wxsJBKyx/Blue-Black-Simple-Modern-Construction-Company-Logo-1.png"
+                  alt="Company Logo"
+                  className="block h-12 w-25 object-contain transition-transform duration-300 hover:scale-105"
+                />
+              </div>
             </a>
 
             {/* Desktop Navigation */}
@@ -109,23 +94,7 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               aria-label="Toggle menu"
             >
-              <div className="relative w-6 h-6">
-                <span
-                  className={`absolute left-0 top-1 w-6 h-0.5 bg-gray-900 transform transition-all duration-300 ${
-                    isOpen ? 'rotate-45 translate-y-2' : ''
-                  }`}
-                ></span>
-                <span
-                  className={`absolute left-0 top-3 w-6 h-0.5 bg-gray-900 transition-all duration-300 ${
-                    isOpen ? 'opacity-0' : 'opacity-100'
-                  }`}
-                ></span>
-                <span
-                  className={`absolute left-0 top-5 w-6 h-0.5 bg-gray-900 transform transition-all duration-300 ${
-                    isOpen ? '-rotate-45 -translate-y-2' : ''
-                  }`}
-                ></span>
-              </div>
+              {isOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
             </button>
           </div>
         </div>
@@ -136,7 +105,7 @@ export default function Navbar() {
             isOpen ? 'max-h-screen opacity-100' : 'max-h-0 opacity-0'
           }`}
         >
-          <div className="bg-white/95 backdrop-blur-md border-t border-gray-200 shadow-xl">
+          <div className="bg-white border-t border-gray-200 shadow-md">
             <div className="px-4 py-6 space-y-1 max-w-7xl mx-auto">
               {navLinks.map((link, index) => (
                 <a
@@ -150,7 +119,7 @@ export default function Navbar() {
                   }`}
                   style={{
                     animationDelay: `${index * 50}ms`,
-                    animation: isOpen ? 'slideInRight 0.3s ease-out forwards' : 'none'
+                    animation: isOpen ? 'slideInRight 0.3s ease-out forwards' : 'none',
                   }}
                 >
                   {link.name}
@@ -197,8 +166,8 @@ export default function Navbar() {
         </div>
       </nav>
 
-      {/* Spacer to prevent content from going under navbar */}
-      <div className={`transition-all duration-500 ${isScrolled ? 'h-16' : 'h-20'}`}></div>
+      {/* Fixed spacer for navbar height */}
+  
 
       <style jsx>{`
         @keyframes slideInRight {
