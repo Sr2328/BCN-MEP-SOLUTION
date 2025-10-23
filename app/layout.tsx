@@ -3,7 +3,7 @@ import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
 import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
-import { BottomNav } from '@/components/BottomNav';
+
 import { FloatingCTA } from '@/components/FloatingCTA';
 import { Toaster } from '@/components/ui/sonner';
 
@@ -27,7 +27,7 @@ export default function RootLayout({
           {children}
         </main>
         <Footer />
-        <BottomNav />
+      
         <FloatingCTA />
         <Toaster />
       </body>
