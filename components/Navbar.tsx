@@ -34,11 +34,8 @@ export default function Navbar() {
   return (
     <>
       <nav
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-          isScrolled
-            ? 'bg-white/95 backdrop-blur-md shadow-xl py-2'
-            : 'bg-white/90 backdrop-blur-sm shadow-md py-4'
-        }`}
+        className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md py-4"
+
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center">
@@ -49,15 +46,16 @@ export default function Navbar() {
               onClick={() => handleLinkClick('/')}
             >
               {/* Logo Image Placeholder - Replace with your actual logo */}
-              <div className="relative">
-                <img 
-                  src="https://via.placeholder.com/120x50/3B82F6/FFFFFF?text=Your+Logo" 
-                  alt="Company Logo" 
-                  className={`transition-all duration-300 ${
-                    isScrolled ? 'h-10' : 'h-12'
-                  } w-auto object-contain group-hover:scale-105`}
-                />
-              </div>
+              
+              <div className="relative flex items-center">
+  <img
+    src="https://i.postimg.cc/wxsJBKyx/Blue-Black-Simple-Modern-Construction-Company-Logo-1.png"
+    alt="Company Logo"
+    className="block h-12 object-contain transition-transform duration-300 hover:scale-105"
+  />
+</div>
+
+              
             </a>
 
             {/* Desktop Navigation */}
