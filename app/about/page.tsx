@@ -2106,90 +2106,76 @@ const Card = ({ className, children }: CardProps) => (
 
 
       {/* Facilities & Resources */}
-      <section className="py-10 md:py-16 bg-white overflow-hidden">
-  <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
-    <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10">
+      <section className="py-10 md:py-16 bg-gradient-to-br from-gray-100 via-gray-200 to-blue-100">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div className="grid grid-cols-1 lg:grid-cols-2 items-center gap-10 md:gap-12">
       
-      {/* LEFT TEXT SECTION */}
-      <motion.div
-        initial={{ opacity: 0, x: -40 }}
-        whileInView={{ opacity: 1, x: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="space-y-5 text-center lg:text-left"
-      >
-        <motion.h2
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5 }}
-          className="text-2xl md:text-3xl font-bold text-gray-900"
-        >
-          Our Facilities & Resources
-        </motion.h2>
+      {/* LEFT TEXT SIDE */}
+      <div className="space-y-5 text-center lg:text-left">
+        <h2 className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug">
+          Our 
+          <span className="text-blue-600 ml-2">
+          Facilities & Resources
+          </span>
+        </h2>
 
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="text-sm md:text-base text-gray-600 max-w-md mx-auto lg:mx-0"
-        >
+        <p className="text-base md:text-lg text-gray-700 max-w-md mx-auto lg:mx-0">
           We are equipped with advanced infrastructure and a skilled workforce 
           to ensure efficiency, quality, and reliability in every project.
-        </motion.p>
+        </p>
 
         {/* FEATURES */}
-        <div className="space-y-3">
+        <div className="space-y-2.5">
           {[
             '300+ sq.ft. modern office space',
             '2000 sq.ft. material storage facility',
             'Advanced design software systems',
             'Professional and skilled engineers',
           ].map((item, index) => (
-            <motion.div
+            <div
               key={index}
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.4, delay: 0.2 + index * 0.1 }}
               className="flex items-start justify-center lg:justify-start gap-2"
             >
-              <CheckCircle2 className="w-4 h-4 text-green-500 mt-0.5" />
-              <span className="text-gray-700 text-sm md:text-base">
-                {item}
-              </span>
-            </motion.div>
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="w-5 h-5 text-blue-600 mt-0.5"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+                strokeWidth={2}
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  d="M9 12l2 2l4-4m6 2a9 9 0 11-18 0a9 9 0 0118 0z"
+                />
+              </svg>
+              <span className="text-gray-800 text-base md:text-lg">{item}</span>
+            </div>
           ))}
         </div>
 
-        <motion.button
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.5, delay: 0.4 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="bg-blue-600 text-white px-6 py-2 rounded-md font-semibold text-sm shadow-md hover:shadow-lg hover:bg-blue-700 transition-all duration-300"
-        >
+        <button className="bg-blue-600 text-white px-7 py-2.5 rounded-lg font-semibold text-base shadow-md hover:shadow-lg hover:bg-blue-700 transition-all duration-300">
           Learn More
-        </motion.button>
-      </motion.div>
+        </button>
+      </div>
 
-      {/* RIGHT IMAGE — no container or background */}
-      <motion.img
-        src="https://i.postimg.cc/gkr9WH27/Peach-Orange-and-Red-Human-Illustration-Classroom-Rules-Blank-Education-Presentation.png"
-        alt="Facilities"
-        className="w-[100%] sm:w-[90%] md:w-[85%] lg:w-[95%] xl:w-[90%] mx-auto lg:mx-0 h-[80vh] object-contain"
-  initial={{ opacity: 0, x: 40 }}
-  whileInView={{ opacity: 1, x: 0 }}
-  viewport={{ once: true }}
-  transition={{ duration: 0.7 }}
-  whileHover={{ scale: 1.05, rotate: 1 }}
-  animate={{ y: [0, -10, 0] }}
-  style={{
-    filter: 'drop-shadow(0 25px 50px rgba(0,0,0,0.25))',
-  }}
-      />
+      {/* RIGHT IMAGE SIDE */}
+      <div className="flex justify-center lg:justify-end">
+        <img
+          src="https://i.postimg.cc/gkr9WH27/Peach-Orange-and-Red-Human-Illustration-Classroom-Rules-Blank-Education-Presentation.png"
+          alt="Facilities"
+          className="w-[90%] md:w-[85%] lg:w-[95%] h-auto object-contain transition-transform duration-500 hover:scale-105"
+          style={{
+            filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.2))',
+          }}
+        />
+      </div>
+
     </div>
   </div>
 </section>
+
 
       {/* Achievements Section */}
   <section className="py-16 md:py-20 bg-gradient-to-br from-gray-50 to-gray-100 relative overflow-hidden">
@@ -2213,16 +2199,19 @@ const Card = ({ className, children }: CardProps) => (
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7 }}
-              className="text-4xl md:text-5xl font-bold mb-4 text-gray-800"
+              className="text-3xl md:text-4xl font-bold text-gray-900 leading-snug"
             >
-              Our Achievements
+              Our 
+              <span className="text-blue-600 ml-2">
+              Achievements
+              </span>
             </motion.h2>
             <motion.p 
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
               viewport={{ once: true }}
               transition={{ duration: 0.7, delay: 0.2 }}
-              className="text-xl text-gray-600 max-w-2xl mx-auto"
+              className="text-smd text-gray-600 max-w-2xl mx-auto"
             >
               Excellence and growth in the MEP industry
             </motion.p>

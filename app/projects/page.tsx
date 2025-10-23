@@ -47,23 +47,83 @@ export default function ProjectsPage() {
 
   return (
     <div>
-      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-blue-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-          >
-            <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-              Our Projects
-            </h1>
-            <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
-              Explore our portfolio of successful projects and see how we've helped
-              businesses achieve their digital goals
-            </p>
-          </motion.div>
+    <section className="relative bg-gradient-to-br from-gray-100 via-white to-blue-50 overflow-hidden">
+  <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-14">
+    <div className="grid md:grid-cols-12 items-center gap-8">
+      
+      {/* LEFT CONTENT */}
+      <motion.div
+        initial={{ opacity: 0, x: -30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7 }}
+        className="md:col-span-6 space-y-4"
+      >
+        <p className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
+          Award-Winning MEP Excellence
+        </p>
+
+        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+          Where Innovation Drives{' '}
+          <span className="text-orange-600">Structural Perfection</span>
+        </h1>
+
+        <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+          Delivering end-to-end MEP solutions with precision, performance, and sustainability across industrial, commercial, and residential projects.
+        </p>
+
+        {/* SERVICES */}
+        <div className="flex flex-wrap gap-2 text-[13px] font-medium text-gray-700 pt-2">
+          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">Electrical Systems</span>
+          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">HVAC & Firefighting</span>
+          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">Plumbing & Utility</span>
+          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">Design & Supervision</span>
+          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">Maintenance</span>
         </div>
-      </section>
+      </motion.div>
+
+      {/* RIGHT IMAGE + STATS */}
+      <motion.div
+        initial={{ opacity: 0, x: 30 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ duration: 0.7, delay: 0.2 }}
+        className="md:col-span-6 flex flex-col md:flex-row items-center md:items-stretch gap-4 relative"
+      >
+        {/* IMAGE */}
+        <div className="flex-1 rounded-lg overflow-hidden shadow-md">
+          <img
+            src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&auto=format&fit=crop"
+            alt="MEP Project Team"
+            className="w-full h-64 md:h-72 object-cover"
+          />
+        </div>
+
+        {/* STATS */}
+        <div className="bg-gradient-to-b from-orange-500 to-orange-600 text-white rounded-xl px-5 py-6 w-40 flex flex-col justify-center shadow-lg">
+          <div className="text-center mb-4">
+            <div className="text-2xl font-bold">640+</div>
+            <p className="text-sm text-orange-100 mt-1">Projects Completed</p>
+          </div>
+          <div className="text-center mb-4">
+            <div className="text-2xl font-bold">25+</div>
+            <p className="text-sm text-orange-100 mt-1">Years of Experience</p>
+          </div>
+          <div className="text-center">
+            <div className="text-2xl font-bold">450+</div>
+            <p className="text-sm text-orange-100 mt-1">Happy Clients</p>
+          </div>
+        </div>
+
+        {/* BLUE CIRCLE DECORATION */}
+        <div className="absolute -top-8 -right-8 w-28 h-28 bg-blue-900 rounded-full opacity-80 -z-10"></div>
+        <div className="absolute -top-5 -right-5 w-16 h-16 border-4 border-orange-400 rounded-full"></div>
+      </motion.div>
+    </div>
+  </div>
+
+  {/* ORANGE STAR ICON DECORATION */}
+  <div className="absolute bottom-8 left-8 text-orange-500 text-2xl">✦</div>
+</section>
+
 
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
