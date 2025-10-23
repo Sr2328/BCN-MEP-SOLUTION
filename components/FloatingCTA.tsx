@@ -473,11 +473,11 @@ export function FloatingCTA() {
 {/* Notification Badge */}
 {!isOpen && !showChat && (
   <div className="fixed bottom-16 md:bottom-[4.5rem] right-3 md:right-5 z-40">
-    <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white 
+    {/* <div className="bg-gradient-to-r from-red-500 to-pink-500 text-white 
       text-xs font-bold rounded-full w-7 h-7 flex items-center 
       justify-center shadow-lg transition-all duration-300">
       NEW
-    </div>
+    </div> */}
   </div>
 )}
 
