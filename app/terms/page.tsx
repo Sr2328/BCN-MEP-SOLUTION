@@ -1,160 +1,123 @@
+'use client';
+
+import { motion } from 'framer-motion';
+import { Shield, FileCheck, Gavel, Building2, Phone, Mail, MapPin } from 'lucide-react';
+
 export default function TermsPage() {
+  const termsSections = [
+    {
+      icon: <Shield className="w-6 h-6 text-blue-600" />,
+      title: '1. Acceptance of Terms',
+      text: `By using BCN MEP Solutions’ website and services, you agree to comply with and be bound by these Terms. If you disagree with any part of these terms, you must refrain from accessing or using our platform or services.`,
+    },
+    {
+      icon: <FileCheck className="w-6 h-6 text-blue-600" />,
+      title: '2. Scope of Services',
+      text: `Our offerings include Mechanical, Electrical, and Plumbing (MEP) system design, execution, maintenance, and consulting for industrial, commercial, and institutional projects. BCN MEP reserves the right to modify, suspend, or discontinue any part of its services at any time.`,
+    },
+    {
+      icon: <Building2 className="w-6 h-6 text-blue-600" />,
+      title: '3. Project & Service Agreements',
+      text: `All projects undertaken by BCN MEP Solutions are governed by mutually signed contracts or work orders. These agreements outline project scope, timelines, deliverables, warranties, and payment schedules.`,
+    },
+    {
+      icon: <Gavel className="w-6 h-6 text-blue-600" />,
+      title: '4. Intellectual Property & Documentation',
+      text: `All drawings, design documents, 3D models, and related intellectual property created during any engagement remain the property of BCN MEP Solutions unless otherwise stated in writing.`,
+    },
+    {
+      icon: <Shield className="w-6 h-6 text-blue-600" />,
+      title: '5. Safety, Compliance & Liability',
+      text: `BCN MEP adheres to the highest safety and compliance standards under Indian and international codes. However, liability is limited to the extent outlined in the respective client contract. We are not liable for delays caused by unforeseen site conditions or third-party dependencies.`,
+    },
+    {
+      icon: <FileCheck className="w-6 h-6 text-blue-600" />,
+      title: '6. Payment & Commercial Terms',
+      text: `All financial transactions are governed by mutually agreed milestones and schedules. Payments must be made in Indian Rupees (₹) via accepted digital or banking channels. Late payments may incur penalties or project suspension.`,
+    },
+    {
+      icon: <Gavel className="w-6 h-6 text-blue-600" />,
+      title: '7. Revisions & Policy Updates',
+      text: `BCN MEP Solutions may update or amend these Terms from time to time. Changes will be reflected on this page, and significant updates will be communicated to clients via official channels.`,
+    },
+  ];
+
   return (
-    <div>
-      <section className="py-16 md:py-24 bg-gradient-to-r from-blue-600 to-blue-800">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <h1 className="text-4xl md:text-6xl font-bold text-white mb-6">
-            Terms of Service
-          </h1>
-          <p className="text-lg md:text-xl text-blue-100 max-w-3xl mx-auto">
+    <div className="bg-white text-gray-800">
+      {/* ===== HERO SECTION ===== */}
+      <section className="relative bg-gradient-to-br from-blue-700 via-blue-800 to-gray-900 text-white py-20 md:py-28 overflow-hidden">
+        <div className="absolute inset-0 bg-[url('/grid.svg')] opacity-10" />
+        <div className="max-w-6xl mx-auto px-6 text-center relative z-10">
+          <motion.h1
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.7 }}
+            className="text-4xl md:text-6xl font-extrabold mb-6 tracking-tight"
+          >
+            BCN MEP Solutions – Terms & Conditions
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="text-blue-100 text-lg md:text-xl max-w-3xl mx-auto"
+          >
             Last updated: {new Date().toLocaleDateString('en-IN', { month: 'long', day: 'numeric', year: 'numeric' })}
-          </p>
+          </motion.p>
         </div>
       </section>
 
-      <section className="py-16 md:py-24">
-        <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="prose prose-lg max-w-none">
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              1. Acceptance of Terms
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              By accessing and using this website, you accept and agree to be
-              bound by the terms and provision of this agreement. If you do not
-              agree to these terms, please do not use this website.
-            </p>
+      {/* ===== MAIN TERMS SECTION ===== */}
+      <section className="py-20 bg-gray-50">
+        <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {termsSections.map((section, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="bg-white shadow-md rounded-2xl p-6 border border-gray-100 hover:shadow-xl transition duration-300"
+            >
+              <div className="flex items-center gap-3 mb-4">
+                <div className="p-2 bg-blue-50 rounded-lg">{section.icon}</div>
+                <h2 className="text-lg font-semibold text-gray-900">{section.title}</h2>
+              </div>
+              <p className="text-gray-600 leading-relaxed">{section.text}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              2. Use License
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              Permission is granted to temporarily download one copy of the
-              materials on our website for personal, non-commercial transitory
-              viewing only. This is the grant of a license, not a transfer of
-              title, and under this license you may not:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-              <li>Modify or copy the materials</li>
-              <li>Use the materials for any commercial purpose</li>
-              <li>Attempt to decompile or reverse engineer any software</li>
-              <li>Remove any copyright or other proprietary notations</li>
-              <li>Transfer the materials to another person</li>
-            </ul>
+      {/* ===== CONTACT SECTION ===== */}
+      <section className="py-20 bg-gradient-to-br from-blue-900 via-blue-800 to-blue-700 text-white">
+        <div className="max-w-4xl mx-auto px-6 text-center">
+          <motion.h2
+            initial={{ opacity: 0, y: 40 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="text-3xl md:text-5xl font-bold mb-6"
+          >
+            Have Questions About Our Terms?
+          </motion.h2>
+          <p className="text-blue-100 mb-10 max-w-2xl mx-auto">
+            We believe in transparency and clear communication. If you have any questions about our service policies, agreements, or legal terms — we’re here to help.
+          </p>
 
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              3. Services
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              We provide various digital services including web development,
-              mobile app development, digital marketing, and cloud solutions. All
-              services are provided "as is" and we reserve the right to modify or
-              discontinue services at any time without notice.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              4. User Accounts
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              When you create an account with us, you must provide information
-              that is accurate, complete, and current at all times. Failure to do
-              so constitutes a breach of the terms, which may result in immediate
-              termination of your account.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              5. Intellectual Property
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              The service and its original content, features, and functionality
-              are and will remain the exclusive property of Business and its
-              licensors. The service is protected by copyright, trademark, and
-              other laws of both India and foreign countries.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              6. Payment Terms
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              All prices are quoted in Indian Rupees (₹) unless otherwise stated.
-              Payment terms include:
-            </p>
-            <ul className="list-disc pl-6 text-gray-700 mb-6 space-y-2">
-              <li>Payment is due as per the agreed schedule in the service contract</li>
-              <li>We accept various payment methods including bank transfer and digital payments</li>
-              <li>Late payments may incur additional charges</li>
-              <li>All sales are final unless otherwise stated in the service agreement</li>
-            </ul>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              7. Disclaimer
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              The materials on our website are provided on an "as is" basis. We
-              make no warranties, expressed or implied, and hereby disclaim and
-              negate all other warranties including, without limitation, implied
-              warranties or conditions of merchantability, fitness for a
-              particular purpose, or non-infringement of intellectual property.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              8. Limitations
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              In no event shall Business or its suppliers be liable for any
-              damages (including, without limitation, damages for loss of data or
-              profit, or due to business interruption) arising out of the use or
-              inability to use the materials on our website.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              9. Revisions and Errata
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              The materials appearing on our website could include technical,
-              typographical, or photographic errors. We do not warrant that any of
-              the materials on its website are accurate, complete, or current. We
-              may make changes to the materials at any time without notice.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              10. Links
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              We have not reviewed all of the sites linked to our website and are
-              not responsible for the contents of any such linked site. The
-              inclusion of any link does not imply endorsement by us. Use of any
-              such linked website is at the user's own risk.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              11. Governing Law
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              These terms and conditions are governed by and construed in
-              accordance with the laws of India and you irrevocably submit to the
-              exclusive jurisdiction of the courts in that location.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              12. Changes to Terms
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-6">
-              We reserve the right to modify these terms at any time. We will
-              notify users of any material changes by posting the new terms on
-              this page and updating the "last updated" date.
-            </p>
-
-            <h2 className="text-2xl font-bold text-gray-900 mb-4">
-              13. Contact Information
-            </h2>
-            <p className="text-gray-700 leading-relaxed mb-4">
-              If you have any questions about these terms, please contact us:
-            </p>
-            <ul className="list-none text-gray-700 space-y-2">
-              <li>Email: legal@business.com</li>
-              <li>Phone: +91 98765 43210</li>
-              <li>Address: 123 Business Street, Tech Park, Mumbai, India 400001</li>
-            </ul>
+          <div className="flex flex-col sm:flex-row justify-center items-center gap-6 text-blue-50">
+            <div className="flex items-center gap-2">
+              <Phone className="w-5 h-5 text-blue-300" />
+              <span>+91 98765 43210</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <Mail className="w-5 h-5 text-blue-300" />
+              <span>legal@bcnmep.com</span>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin className="w-5 h-5 text-blue-300" />
+              <span>BCN MEP HQ, Gurgaon, Haryana, India</span>
+            </div>
           </div>
         </div>
       </section>

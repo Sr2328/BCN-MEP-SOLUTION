@@ -51,7 +51,7 @@
 
 //   const handleWhatsApp = () => {
 //     window.open(
-//       'https://wa.me/919876543210?text=Hello!%20I%20would%20like%20to%20inquire%20about%20your%20services.',
+//       'https://wa.me/919717084301?text=Hello!%20I%20would%20like%20to%20inquire%20about%20your%20services.',
 //       '_blank'
 //     );
 //   };
@@ -320,7 +320,7 @@
 //                     </div>
 //                     <div>
 //                       <p className="text-blue-200 text-sm mb-1">Hotline</p>
-//                       <a href="tel:+919876543210" className="font-semibold text-lg hover:text-blue-200 transition-colors">
+//                       <a href="tel:+919717084301" className="font-semibold text-lg hover:text-blue-200 transition-colors">
 //                         +91 98765 43210
 //                       </a>
 //                     </div>
@@ -516,7 +516,7 @@ import { Mail, Phone, Bell, CheckCircle, Code2, Zap, Shield, Smartphone, Github,
 export default function UnderConstruction() {
   const [email, setEmail] = useState('');
   const [isSubscribed, setIsSubscribed] = useState(false);
-  const [countdown, setCountdown] = useState({ days: 45, hours: 12, minutes: 30, seconds: 45 });
+  const [countdown, setCountdown] = useState({ days: 15, hours: 12, minutes: 30, seconds: 45 });
   const [progress, setProgress] = useState(0);
 
   // Countdown timer
@@ -745,11 +745,11 @@ export default function UnderConstruction() {
           {/* Contact Buttons */}
           <div className="flex flex-col sm:flex-row gap-4 justify-center mb-12 animate-fade-in-up stagger-4">
             <a
-              href="tel:+919876543210"
+              href="tel:+919717084301"
               className="group bg-white border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-xl font-semibold hover:bg-blue-600 hover:text-white transition-all shadow-lg hover:shadow-xl flex items-center justify-center gap-2 hover:scale-105 transform duration-300"
             >
               <Phone className="w-5 h-5 group-hover:rotate-12 transition-transform" />
-              +91 98765 43210
+              +91 97170 84301
             </a>
             <a
               href="mailto:info@mepsolutions.com"
