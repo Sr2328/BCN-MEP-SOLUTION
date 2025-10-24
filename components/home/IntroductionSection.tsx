@@ -61,17 +61,17 @@ export function IntroductionSection() {
                 className="rounded-lg shadow-lg w-full h-48 object-cover"
               />
               <img
-                src="https://images.pexels.com/photos/1090638/pexels-photo-1090638.jpeg?auto=compress&cs=tinysrgb&w=600"
-                alt="Plumbing systems"
+                src="https://i.postimg.cc/gkr4rxWW/446cf5c1706ca135e189fc31d1ef4f88.jpg?auto=compress&cs=tinysrgb&w=600"
+                alt="Fire-fighting systems"
                 className="rounded-lg shadow-lg w-full h-48 object-cover mt-8"
               />
               <img
-                src="https://images.pexels.com/photos/236093/pexels-photo-236093.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src="https://i.postimg.cc/Rh13ZQZ2/57d68517ddb37d0f2689be632a16d2be.jpg?auto=compress&cs=tinysrgb&w=600"
                 alt="Industrial installation"
                 className="rounded-lg shadow-lg w-full h-48 object-cover -mt-8"
               />
               <img
-                src="https://images.pexels.com/photos/221012/pexels-photo-221012.jpeg?auto=compress&cs=tinysrgb&w=600"
+                src="https://i.postimg.cc/mgyS5C3z/843a785cb44806b995dcaace951c5c71.jpg?auto=compress&cs=tinysrgb&w=600"
                 alt="HVAC systems"
                 className="rounded-lg shadow-lg w-full h-48 object-cover"
               />

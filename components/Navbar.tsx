@@ -137,7 +137,7 @@ export default function Navbar() {
                   </div>
                   <div>
                     <p className="text-xs text-gray-500 group-hover:text-blue-600 transition-colors">Call Us</p>
-                    <p className="font-semibold">+91 98765 43210</p>
+                    <p className="font-semibold">+91 89303 72989</p>
                   </div>
                 </a>
                 

@@ -48,36 +48,45 @@ export default function ProjectsPage() {
   return (
     <div>
     <section className="relative bg-gradient-to-br from-gray-100 via-white to-blue-50 overflow-hidden">
-  <div className="max-w-7xl mx-auto px-6 md:px-10 py-10 md:py-14">
-    <div className="grid md:grid-cols-12 items-center gap-8">
+  <div className="max-w-7xl mx-auto px-4 sm:px-6 md:px-10 py-10 md:py-14">
+    <div className="grid md:grid-cols-12 items-center gap-10 md:gap-8">
       
       {/* LEFT CONTENT */}
       <motion.div
         initial={{ opacity: 0, x: -30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7 }}
-        className="md:col-span-6 space-y-4"
+        className="md:col-span-6 space-y-4 text-center md:text-left"
       >
-        <p className="text-orange-500 font-semibold text-sm uppercase tracking-wider">
+        <p className="text-blue-600 font-semibold text-xs sm:text-sm uppercase tracking-wider">
           Award-Winning MEP Excellence
         </p>
 
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
+        <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 leading-tight">
           Where Innovation Drives{' '}
-          <span className="text-orange-600">Structural Perfection</span>
+          <span className="text-blue-600">Structural Perfection</span>
         </h1>
 
-        <p className="text-gray-600 text-sm md:text-base leading-relaxed max-w-md">
+        <p className="text-gray-600 text-sm sm:text-base leading-relaxed max-w-md mx-auto md:mx-0">
           Delivering end-to-end MEP solutions with precision, performance, and sustainability across industrial, commercial, and residential projects.
         </p>
 
-        {/* SERVICES */}
-        <div className="flex flex-wrap gap-2 text-[13px] font-medium text-gray-700 pt-2">
-          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">Electrical Systems</span>
-          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">HVAC & Firefighting</span>
-          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">Plumbing & Utility</span>
-          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">Design & Supervision</span>
-          <span className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition">Maintenance</span>
+        {/* SERVICES TAGS */}
+        <div className="flex flex-wrap justify-center md:justify-start gap-2 pt-3 text-[12px] sm:text-[13px] font-medium text-gray-700">
+          {[
+            'Electrical Systems',
+            'HVAC & Firefighting',
+            'Plumbing & Utility',
+            'Design & Supervision',
+            'Maintenance',
+          ].map((item) => (
+            <span
+              key={item}
+              className="bg-gray-100 hover:bg-blue-100 px-3 py-1.5 rounded-full transition"
+            >
+              {item}
+            </span>
+          ))}
         </div>
       </motion.div>
 
@@ -86,44 +95,41 @@ export default function ProjectsPage() {
         initial={{ opacity: 0, x: 30 }}
         whileInView={{ opacity: 1, x: 0 }}
         transition={{ duration: 0.7, delay: 0.2 }}
-        className="md:col-span-6 flex flex-col md:flex-row items-center md:items-stretch gap-4 relative"
+        className="md:col-span-6 flex flex-col sm:flex-row items-center md:items-stretch gap-6 relative"
       >
         {/* IMAGE */}
-        <div className="flex-1 rounded-lg overflow-hidden shadow-md">
+        <div className="w-full sm:flex-1 rounded-lg overflow-hidden shadow-md">
           <img
             src="https://images.unsplash.com/photo-1541888946425-d81bb19240f5?w=700&auto=format&fit=crop"
             alt="MEP Project Team"
-            className="w-full h-64 md:h-72 object-cover"
+            className="w-full h-56 sm:h-64 md:h-72 object-cover"
           />
         </div>
 
-        {/* STATS */}
-        <div className="bg-gradient-to-b from-orange-500 to-orange-600 text-white rounded-xl px-5 py-6 w-40 flex flex-col justify-center shadow-lg">
-          <div className="text-center mb-4">
-            <div className="text-2xl font-bold">640+</div>
-            <p className="text-sm text-orange-100 mt-1">Projects Completed</p>
-          </div>
-          <div className="text-center mb-4">
-            <div className="text-2xl font-bold">25+</div>
-            <p className="text-sm text-orange-100 mt-1">Years of Experience</p>
-          </div>
-          <div className="text-center">
-            <div className="text-2xl font-bold">450+</div>
-            <p className="text-sm text-orange-100 mt-1">Happy Clients</p>
-          </div>
+        {/* STATS BOX */}
+        <div className="bg-gradient-to-b from-blue-500 to-blue-600 text-white rounded-xl px-6 py-5 sm:py-6 w-full sm:w-44 md:w-48 flex flex-col justify-center items-center sm:items-stretch shadow-lg mt-4 sm:mt-0">
+          {[
+            { number: '000+', label: 'Projects Completed' },
+            { number: '000+', label: 'Years of Experience' },
+            { number: '000+', label: 'Happy Clients' },
+          ].map((stat, index) => (
+            <div key={index} className="text-center mb-4 last:mb-0">
+              <div className="text-xl sm:text-2xl font-bold">{stat.number}</div>
+              <p className="text-xs sm:text-sm text-orange-100 mt-1">{stat.label}</p>
+            </div>
+          ))}
         </div>
 
-        {/* BLUE CIRCLE DECORATION */}
-        <div className="absolute -top-8 -right-8 w-28 h-28 bg-blue-900 rounded-full opacity-80 -z-10"></div>
-        <div className="absolute -top-5 -right-5 w-16 h-16 border-4 border-orange-400 rounded-full"></div>
+        {/* DECORATIONS */}
+        <div className="absolute -top-6 -right-6 sm:-top-8 sm:-right-8 w-16 sm:w-24 md:w-28 h-16 sm:h-24 md:h-28 bg-blue-900 rounded-full opacity-80 -z-10"></div>
+        <div className="absolute -top-4 -right-4 sm:-top-5 sm:-right-5 w-10 sm:w-14 md:w-16 h-10 sm:h-14 md:h-16 border-4 border-white-00 rounded-full"></div>
       </motion.div>
     </div>
   </div>
 
-  {/* ORANGE STAR ICON DECORATION */}
-  <div className="absolute bottom-8 left-8 text-orange-500 text-2xl">✦</div>
+  {/* STAR DECORATION */}
+  <div className="absolute bottom-8 left-8 text-blue-500 text-2xl hidden sm:block">✦</div>
 </section>
-
 
       <section className="py-12 md:py-16">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
